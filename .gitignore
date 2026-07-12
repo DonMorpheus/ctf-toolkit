@@ -1,0 +1,21 @@
+# secrets / lab noise
+*.ovpn
+.env
+.env.*
+*copy-paste*
+loot/
+**/id_ed25519*
+**/*_htb
+**/*.pem
+**/*.key
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# editor / os
+.DS_Store
+*.swp
+*~
