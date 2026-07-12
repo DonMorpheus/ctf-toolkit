@@ -1,8 +1,8 @@
-# Push `ctf-toolkit` to GitHub (Don_Morpheus)
+# Push `ctf-toolkit` to GitHub (DonMorpheus)
 
 ## 1. Add SSH key to GitHub
 
-1. Open https://github.com/settings/keys (logged in as **Don_Morpheus**).
+1. Open https://github.com/settings/keys (logged in as **DonMorpheus**).
 2. **New SSH key** — paste contents of:
 
    `~/.ssh/id_ed25519.pub` on this Kali VM
@@ -13,7 +13,7 @@
    ssh -T git@github.com
    ```
 
-   Expect: `Hi Don_Morpheus! You've successfully authenticated...`
+   Expect: `Hi DonMorpheus! You've successfully authenticated...`
 
 ## 2. Create empty repo on GitHub
 
@@ -21,15 +21,15 @@
 - Public
 - **Do not** add README/license (already in local clone)
 
-URL: `https://github.com/Don_Morpheus/ctf-toolkit`
+URL: `https://github.com/DonMorpheus/ctf-toolkit`
 
 ## 3. Push from Kali
 
 ```bash
 cd ~/github/ctf-toolkit
-git config user.name "Don_Morpheus"
+git config user.name "DonMorpheus"
 git config user.email "YOUR_GITHUB_EMAIL"
-git remote add origin git@github.com:Don_Morpheus/ctf-toolkit.git
+git remote add origin git@github.com:DonMorpheus/ctf-toolkit.git
 git branch -M main
 git push -u origin main
 ```

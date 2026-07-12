@@ -1,7 +1,7 @@
 # ctf-toolkit
 
 Lab scripts and small PoCs from **HackTheBox / CTF** practice.  
-Maintained by [**Don_Morpheus**](https://github.com/Don_Morpheus).
+Maintained by [**DonMorpheus**](https://github.com/DonMorpheus).
 
 > Educational use only. Run against systems you are allowed to test (HTB VPN, own VMs).  
 > No flags, VPN configs, or live credentials in this repo.
@@ -11,12 +11,12 @@ Maintained by [**Don_Morpheus**](https://github.com/Don_Morpheus).
 | Path | Description |
 |------|-------------|
 | [`htb/paperwork/`](htb/paperwork/) | **Paperwork** (Easy) — LPD client, PJL helpers, `mgmt.sock` leak |
-| [`profile/`](profile/) | Template for GitHub profile README (`Don_Morpheus/Don_Morpheus`) |
+| [`profile/`](profile/) | Template for GitHub profile README (`DonMorpheus/DonMorpheus`) |
 
 ## Quick start
 
 ```bash
-git clone https://github.com/Don_Morpheus/ctf-toolkit.git
+git clone https://github.com/DonMorpheus/ctf-toolkit.git
 cd ctf-toolkit/htb/paperwork
 # LPD foothold (set target IP)
 python3 lpd_exploit.py <TARGET_IP> -c 'id'

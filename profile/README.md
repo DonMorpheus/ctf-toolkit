@@ -1,21 +1,21 @@
 # GitHub profile README
 
-To show a nice landing page on **https://github.com/Don_Morpheus**:
+To show a nice landing page on **https://github.com/DonMorpheus**:
 
-1. Create a **new public** repo named exactly: `Don_Morpheus` (same as your username).
+1. Create a **new public** repo named exactly: `DonMorpheus` (same as your username).
 2. Add a single `README.md` — use the template below as `README.md` in that repo.
 3. Pin **`ctf-toolkit`** (and this profile repo if you want) on your profile.
 
 ---
 
-## Template — copy into `Don_Morpheus/Don_Morpheus` repo
+## Template — copy into `DonMorpheus/DonMorpheus` repo
 
 ```markdown
-# Hi, I'm Don_Morpheus
+# Hi, I'm DonMorpheus
 
 Offensive security / CTF practice on **HackTheBox** and home labs (Kali).
 
-**Pinned:** [ctf-toolkit](https://github.com/Don_Morpheus/ctf-toolkit) — Python & bash tooling from real boxes (LPD, PJL, Linux privesc patterns).
+**Pinned:** [ctf-toolkit](https://github.com/DonMorpheus/ctf-toolkit) — Python & bash tooling from real boxes (LPD, PJL, Linux privesc patterns).
 
 What I work with:
 - Network & web recon, custom exploit clients (not only Metasploit)
