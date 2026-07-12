@@ -1,5 +1,12 @@
 # Paperwork (HackTheBox — Easy, Linux)
 
-Scripts live in [`paperwork/`](paperwork/) (LPD, PJL, management socket tooling).
+Release Arena EU · custom **LPD** + **PJL** / printer stack on Ubuntu.
 
-Release Arena EU · custom printer/LPD stack.
+| | |
+|--|--|
+| **Scripts** | [`paperwork/`](paperwork/) |
+| **Focus** | LPD command injection → archivist pivot → `mgmt.sock` / SCM_RIGHTS |
+
+High-level chain (no spoilers): foothold on **1515**, localhost **9100**, then Linux privesc via management daemon — not a public web admin panel.
+
+Script index: [`paperwork/README.md`](paperwork/README.md).

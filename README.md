@@ -1,50 +1,27 @@
 # ctf-toolkit
 
-Lab scripts and small PoCs from **HackTheBox / CTF** practice.  
-Maintained by [**DonMorpheus**](https://github.com/DonMorpheus).
+Public collection of **CTF / HackTheBox lab scripts** — small Python and Bash tools written while solving machines on a home Kali setup.
 
-> Educational use only. Run against systems you are allowed to test (HTB VPN, own VMs).  
-> No flags, VPN configs, or live credentials in this repo.
+**Author:** [**DonMorpheus**](https://github.com/DonMorpheus)
 
-## What's inside
+This repository is for **learning and portfolio** (recruiters, peers, future me). It is not a general-purpose exploit framework.
 
-| Path | Description |
-|------|-------------|
-| [`htb/Paperwork/paperwork/`](htb/Paperwork/paperwork/) | **Paperwork** (Easy) — LPD client, PJL helpers, `mgmt.sock` leak |
-| [`profile/`](profile/) | Template for GitHub profile README (`DonMorpheus/DonMorpheus`) |
+## Rules of the house
 
-## Quick start
+- Use only on targets you are allowed to test (HTB VPN, your own VMs).
+- **No** VPN configs, flags, or live credentials in git.
+- Scripts are often **machine-specific**; read the README under each box before running.
 
-```bash
-git clone https://github.com/DonMorpheus/ctf-toolkit.git
-cd ctf-toolkit/htb/Paperwork/paperwork
-# LPD foothold (set target IP)
-python3 lpd_exploit.py <TARGET_IP> -c 'id'
-# Callback exfil (optional): export LHOST=<your_tun0_ip>
-export LHOST=10.10.x.x
-./lpd_post.sh <TARGET_IP> tag 'id'
-```
+## Where things live
 
-## Stack you'll see here
+| Path | What |
+|------|------|
+| [`htb/`](htb/) | **HackTheBox** — per-machine folders, usage, tooling |
+| [`profile/`](profile/) | Optional GitHub profile README template |
+| [`docs/`](docs/) | Maintainer notes (e.g. git push) |
 
-- Python 3 — custom protocol clients (LPD, PJL)
-- Bash — enum / fuzz helpers on target via LPD one-liners
-- Linux — Unix sockets, `recvmsg` / SCM_RIGHTS patterns
-
-## Repo layout (for recruiters / HR)
-
-```
-ctf-toolkit/
-├── README.md
-├── LICENSE
-├── htb/
-│   └── Paperwork/     # HTB box name
-│       └── paperwork/ # scripts for that machine
-└── profile/           # optional GitHub landing page
-```
-
-More machines → add `htb/<BoxName>/<scripts>/` the same way.
+**Start here for HTB content:** [`htb/README.md`](htb/README.md)
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) — free to study and reuse with attribution.
