@@ -1,47 +1,67 @@
 # HackTheBox (`htb/`)
 
-Scripts and notes tied to **specific HTB machines**. Each box gets its own directory under `htb/<BoxName>/`.
+This directory is the **main HTB workspace** in [ctf-toolkit](https://github.com/DonMorpheus/ctf-toolkit): scripts, small PoCs, and pointers written while solving **HackTheBox** machines on a personal Kali lab.
+
+Nothing here is a turnkey “attack platform” — each subdirectory belongs to **one retired or in-progress box** and assumes you already have legal access (HTB VPN, your own lab, or similar).
+
+## What this folder is for
+
+- **Reusable tooling** from real solves (clients, enum one-liners, pivot helpers).
+- **Clear layout** so recruiters and future-you can see *which* box a script came from.
+- **No secrets in git** — no `.ovpn`, flags, or live passwords (see repo root `.gitignore`).
+
+## What you can find here
+
+| Kind of content | Typical examples |
+|-----------------|------------------|
+| **Python** | Custom protocol clients, socket helpers, small automation |
+| **Bash** | On-target enum, fuzz stubs, callback / exfil wrappers |
+| **Per-box README** | Context for that machine, script index, how pieces fit together |
+| **Linux / Windows patterns** | Whatever that box actually taught (e.g. local services, IPC, misconfig) |
+
+Scripts are **machine-specific**. Always open the box’s README before running anything against an IP.
+
+## Quick start
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/DonMorpheus/ctf-toolkit.git
+   cd ctf-toolkit/htb
+   ```
+
+2. **Connect to HTB** (on your machine, not in this repo)  
+   Use your HackTheBox VPN config and confirm you can reach the target IP (`tun0`, ping, `nmap`).
+
+3. **Pick a machine** from the table below and read its README  
+   Example: [`Paperwork/README.md`](Paperwork/README.md) → then the scripts path listed there.
+
+4. **Run tooling from your attacker host or from a shell on the box**  
+   As documented per script (many helpers expect `python3`, env vars like `LHOST`, or SSH onto the target).
+
+5. **Add a new box** when you finish another machine: create `htb/<BoxName>/`, drop scripts + README, add a row to the table — same pattern as existing entries.
 
 ## Machines
 
 | Box | Difficulty | Path |
 |-----|------------|------|
-| **Paperwork** | Easy (Linux) | [`Paperwork/paperwork/`](Paperwork/paperwork/) |
-
-Details per box: see `Paperwork/README.md` and the table in `Paperwork/paperwork/README.md`.
-
-## Quick start (Paperwork)
-
-```bash
-git clone https://github.com/DonMorpheus/ctf-toolkit.git
-cd ctf-toolkit/htb/Paperwork/paperwork
-
-# LPD foothold — set target IP (HTB VPN)
-python3 lpd_exploit.py <TARGET_IP> -c 'id'
-
-# Optional callback exfil from target → your Kali
-export LHOST=<your_tun0_ip>
-./lpd_post.sh <TARGET_IP> tag 'id'
-```
-
-## What you’ll find in these folders
-
-- **Python** — custom clients (e.g. RFC 1179 LPD, PJL over TCP)
-- **Bash** — enum / fuzz helpers meant to run **on** the target via LPD one-liners
-- **Linux patterns** — Unix sockets, `recvmsg` / SCM_RIGHTS, localhost-only services
+| **Paperwork** | Easy (Linux) | [`Paperwork/`](Paperwork/) → [`paperwork/`](Paperwork/paperwork/) scripts |
 
 ## Layout convention
 
 ```text
 htb/
-├── README.md           ← this file
-└── <BoxName>/          ← official HTB machine name (e.g. Paperwork)
-    ├── README.md       ← short box context
-    └── <scripts>/      ← tooling (e.g. paperwork/)
+├── README.md              ← you are here (HTB overview)
+└── <BoxName>/             ← official HTB machine name (e.g. Paperwork)
+    ├── README.md          ← what this box is about, where scripts live
+    └── <tooling>/         ← e.g. paperwork/ — actual .py / .sh files
 ```
 
-Adding a new machine: copy the pattern, add a row to the table above, keep secrets out of git (see root `.gitignore`).
+## Standard lab notes
+
+- **Resets** change IPs and sometimes paths — scripts use placeholders (`<TARGET_IP>`, `CHANGE_ME`, `LHOST`).
+- **Scope:** HTB rules + your contract / local law; do not point this at systems you do not own or are not allowed to test.
+- **Write-ups / flags** stay outside public repos or in private notes — this tree is for **code and structure**, not spoilers for active boxes.
 
 ## Disclaimer
 
-Educational use only. HTB machines change on reset; IPs and exact steps are your responsibility during active labs.
+Educational and portfolio use only. You are responsible for how and where you run these tools.
