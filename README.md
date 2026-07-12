@@ -18,7 +18,6 @@ This repository is for **learning and portfolio** (recruiters, peers, future me)
 |------|------|
 | [`htb/`](htb/) | **HackTheBox** — per-machine folders, usage, tooling |
 | [`profile/`](profile/) | Optional GitHub profile README template |
-| [`docs/`](docs/) | Maintainer notes (e.g. git push) |
 
 **Start here for HTB content:** [`htb/README.md`](htb/README.md)
 

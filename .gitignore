@@ -1,3 +1,6 @@
+# local maintainer notes (never publish)
+docs/
+
 # secrets / lab noise
 *.ovpn
 .env
