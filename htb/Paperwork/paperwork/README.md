@@ -1,4 +1,4 @@
-# HTB — Paperwork (scripts)
+# Paperwork — scripts
 
 | Script | Role |
 |--------|------|

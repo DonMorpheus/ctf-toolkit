@@ -10,14 +10,14 @@ Maintained by [**DonMorpheus**](https://github.com/DonMorpheus).
 
 | Path | Description |
 |------|-------------|
-| [`htb/paperwork/`](htb/paperwork/) | **Paperwork** (Easy) — LPD client, PJL helpers, `mgmt.sock` leak |
+| [`htb/Paperwork/paperwork/`](htb/Paperwork/paperwork/) | **Paperwork** (Easy) — LPD client, PJL helpers, `mgmt.sock` leak |
 | [`profile/`](profile/) | Template for GitHub profile README (`DonMorpheus/DonMorpheus`) |
 
 ## Quick start
 
 ```bash
 git clone https://github.com/DonMorpheus/ctf-toolkit.git
-cd ctf-toolkit/htb/paperwork
+cd ctf-toolkit/htb/Paperwork/paperwork
 # LPD foothold (set target IP)
 python3 lpd_exploit.py <TARGET_IP> -c 'id'
 # Callback exfil (optional): export LHOST=<your_tun0_ip>
@@ -38,11 +38,12 @@ ctf-toolkit/
 ├── README.md
 ├── LICENSE
 ├── htb/
-│   └── paperwork/     # one machine per folder as you add more
+│   └── Paperwork/     # HTB box name
+│       └── paperwork/ # scripts for that machine
 └── profile/           # optional GitHub landing page
 ```
 
-More machines → add `htb/<machine-name>/` the same way.
+More machines → add `htb/<BoxName>/<scripts>/` the same way.
 
 ## License
 
