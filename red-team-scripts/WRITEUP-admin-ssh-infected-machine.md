@@ -128,6 +128,71 @@ Dowód: `cat ~/FLAG.txt` na stacji `admin` → `LAB{pivot_admin_workstation}`.
 
 ---
 
+## Persistence — auto-pivot gdy masz już hosta
+
+Masz **root na zainfekowanym serwerze** i czekasz, aż admin **sam** wjedzie `ssh`. Zamiast ręcznie odpalać skrypty, możesz **utrwalić warstwę operacyjną**: watcher widzi **nowy proces klienta `ssh`** → uruchamia `pivot_infected_admin.sh` (najpierw agent, potem `/proc/PID/root`).
+
+To nie jest „magiczny backdoor w sshd” — to **post-exploit automation** na hoście, który już kontrolujesz.
+
+### Warunki
+
+| Wymaganie | Dlaczego |
+|-----------|----------|
+| **root** (lub odczyt `/proc/*/root`) | Pivot proc + ewentualnie pamięć |
+| Filtr na **klienta** `ssh`, nie `sshd` | `sshd` = ktoś do ciebie; `ssh legacy@…` = admin wychodzi na zewnątrz |
+| Port / user (`2221`, `legacy` w labie) | Mniej fałszywych trafień (twój własny `ssh`) |
+| **ADMIN_IP** (peer z `ss`) lub stałe IP laptopa | Dokąd robić `ssh admin@…` |
+
+### MITRE (warstwa utrwalenia / reakcji)
+
+| ID | Uwaga |
+|----|--------|
+| T1059.004 | Ponowne użycie shell/SSH przy triggerze |
+| T1021.004 | Pivot na stację admina |
+| T1546.013 | *Opcjonalnie* — unit systemd utrzymujący watchera (lab) |
+| T1562.006 | *Blue concern* — długo działający watcher w userspace |
+
+### Wariant 1 — watcher (lab / CTF)
+
+```bash
+sudo ./ssh-infected-admin-pivot/watch_ssh_client_pivot.sh 172.17.0.2
+```
+
+- Co `INTERVAL` sekund (domyślnie 3): `ps` szuka `ssh … -p 2221 … legacy@`
+- Nowy PID → zapis w `/var/tmp/.ssh_pivot_seen_pids` (bez duplikatów)
+- Log: `/var/tmp/ssh_pivot.log`
+
+Zmienne: `SSH_SERVER_PORT`, `VICTIM_USER`, `STATE_FILE`, `INTERVAL`.
+
+### Wariant 2 — auditd (ciszej niż pętla)
+
+```bash
+auditctl -a always,exit -F arch=b64 -S execve -F exe=/usr/bin/ssh -k admin_ssh_out
+```
+
+Parser na `aureport` / `ausearch` odpala ten sam pivot — mniej CPU, **więcej śladu w audit** (dla blue to plus).
+
+### Wariant 3 — eBPF / bpftrace
+
+`tracepoint:syscalls:sys_enter_execve` gdzie `comm == "ssh"` → filtruj `argv` pod port/user. Mniej hałasu w cronie, więcej pracy przy wdrożeniu.
+
+### Pułapki
+
+- **Krótki PID** — admin zamyka sesję szybko; reakcja w **sekundach**, socket agenta łap od razu.
+- **Własne połączenia** — wyklucz `ppid`, user, dst IP z allowlisty.
+- **OPSEC** — ciągły `pgrep` zostawia proces i logi; w ćwiczeniach OK, w prod rozważ auditd + jednorazowy agent.
+- **Legal** — tylko host w scope (lab, umowa, HTB).
+
+### systemd (przykład)
+
+`ssh-infected-admin-pivot/systemd/ssh-pivot-watch.service.example` — skopiuj ścieżki, `enable` tylko w labie.
+
+### Netcat (inna scenka)
+
+Przy **`nc -e`** nie potrzebujesz watchera SSH — **`nc -lvnp`** na zainfekowanym hoście **już jest** „persistującym listenerem”; admin w pętli oddaje powłokę.
+
+---
+
 ## Autor
 
 DonMorpheus — materiał z labu TTP na Kali (2026).  

@@ -1,0 +1,12 @@
+[Unit]
+Description=Watch for admin ssh client and pivot (lab only)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/red-team/ssh-infected-admin-pivot/watch_ssh_client_pivot.sh 172.17.0.2
+Restart=on-failure
+# Wymaga root; scope: authorized lab only.
+
+[Install]
+WantedBy=multi-user.target
