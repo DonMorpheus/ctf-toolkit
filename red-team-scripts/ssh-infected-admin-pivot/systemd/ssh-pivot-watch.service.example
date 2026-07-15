@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/red-team/ssh-infected-admin-pivot/watch_ssh_client_pivot.sh 172.17.0.2
+Environment=SSH_SERVER_PORT=22
+ExecStart=/opt/red-team/ssh-infected-admin-pivot/watch_ssh_client_pivot.sh YOUR_ADMIN_IP
 Restart=on-failure
 # Wymaga root; scope: authorized lab only.
 

@@ -65,7 +65,8 @@ runuser -u legacy -- env SSH_AUTH_SOCK="$AUTH_SOCK" \
 ### Skrypt
 
 ```bash
-./ssh-infected-admin-pivot/pivot_agent_to_admin.sh <ADMIN_IP>
+export SSH_SERVER_PORT=22   # lab: 2221
+sudo ./ssh-infected-admin-pivot/pivot_agent_to_admin.sh <ADMIN_IP>
 ```
 
 ---

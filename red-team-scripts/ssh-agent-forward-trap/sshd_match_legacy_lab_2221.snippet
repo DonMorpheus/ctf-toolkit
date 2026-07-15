@@ -1,0 +1,7 @@
+# Isolated lab sshd (Kali ttp-docker-ssh-lab) — port 2221 only.
+Match User legacy LocalAddress * LocalPort 2221
+    ForceCommand /usr/local/bin/require_agent_forward.sh
+    AllowTcpForwarding no
+    AllowAgentForwarding yes
+    PasswordAuthentication no
+    PubkeyAuthentication yes

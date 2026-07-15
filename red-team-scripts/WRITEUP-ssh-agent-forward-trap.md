@@ -8,7 +8,7 @@ On a **compromised server** you control `sshd` so that user **`legacy`** on **po
 - Prints an **English** policy message telling admin to use **`ssh -A`**.
 - Sets **`AllowTcpForwarding no`** on the match block — no **`-R` / `-L`** on that account.
 
-Admin complies → **agent on your host** → `pivot_to_admin_pc.sh` with the admin’s real IP (from `ss`, not Docker).
+Admin complies → **agent on your host** → `pivot_agent_to_admin.sh` with the admin’s real IP (from `ss`, not Docker).
 
 > **Isolated lab on Kali** often uses a second `sshd` on **`:2221`** so you do not touch system `:22`. Same logic — only change `LocalPort` and `-p` in tests. See [Local lab (optional `:2221`)](#local-lab-optional-2221).
 
@@ -42,7 +42,7 @@ Discover admin IP for pivot (peer of your listening `:22`):
 ```bash
 ss -tnH state established '( sport = :22 )' | awk '{print $4}' | sed 's/:.*//'
 export SSH_SERVER_PORT=22 VICTIM_USER=legacy
-sudo ../ssh-infected-admin-pivot/pivot_to_admin_pc.sh <ADMIN_IP>
+sudo ../ssh-infected-admin-pivot/pivot_agent_to_admin.sh <ADMIN_IP>
 
 # Optional: run collection script on admin PC after pivot
 sudo ../ssh-infected-admin-pivot/post_pivot_via_agent.sh <ADMIN_IP>
@@ -79,7 +79,7 @@ export SSH_SERVER_PORT=2221
 ssh -A -i key -p 2221 legacy@127.0.0.1
 ```
 
-Use `sshd_match_legacy.snippet` variant with `LocalPort 2221` from `ACCESS-AGENT-TRAP.md` in the HTB folder.
+Use `ssh-agent-forward-trap/sshd_match_legacy_lab_2221.snippet` (or `ACCESS-AGENT-TRAP.md` on Kali).
 
 ## Related
 

