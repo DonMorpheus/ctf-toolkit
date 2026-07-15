@@ -45,6 +45,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | Box | Difficulty | Path |
 |-----|------------|------|
 | **Paperwork** | Easy (Linux) | [`Paperwork/`](Paperwork/) → [`paperwork/`](Paperwork/paperwork/) scripts |
+| **Enigma** | Easy / Medium (Linux) | [`Enigma/`](Enigma/) — [`WRITEUP.md`](Enigma/WRITEUP.md), [`scripts/`](Enigma/scripts/) |
 
 ## Layout convention
 

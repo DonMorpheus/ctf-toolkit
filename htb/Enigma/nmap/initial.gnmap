@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Wed Jul 15 06:08:47 2026 as: /usr/lib/nmap/nmap -sC -sV -T4 --open -oA /home/kali/Desktop/htb/_active/nmap/initial 10.129.239.191
+Host: 10.129.239.191 ()	Status: Up
+Host: 10.129.239.191 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//nginx 1.24.0 (Ubuntu)/, 110/open/tcp//pop3//Dovecot pop3d/, 111/open/tcp//rpcbind//2-4 (RPC #100000)/, 143/open/tcp//imap//Dovecot imapd (Ubuntu)/, 993/open/tcp//ssl|imap//Dovecot imapd (Ubuntu)/, 995/open/tcp//ssl|pop3//Dovecot pop3d/, 2049/open/tcp//nfs_acl//3 (RPC #100227)/	Ignored State: closed (992)
+# Nmap done at Wed Jul 15 06:09:09 2026 -- 1 IP address (1 host up) scanned in 21.98 seconds

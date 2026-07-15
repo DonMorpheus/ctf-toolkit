@@ -1,0 +1,409 @@
+# There is a built-in micro proxy that will host the webui and REST API all on
+# one port (this is called the "Single HTTP Frontend") and means you just need
+# one open port in the container/firewalls/etc.
+#
+# Listen on all addresses available, port 1337
+listenAddressSingleHTTPFrontend: 127.0.0.1:1337
+
+# Choose from INFO (default), WARN and DEBUG
+# Docs: https://docs.olivetin.app/advanced_configuration/logs.html 
+logLevel: "INFO"
+
+# Actions are commands that are executed by OliveTin, and normally show up as
+# buttons on the WebUI.
+#
+# Docs: https://docs.olivetin.app/action_execution/create_your_first.html
+actions:
+  # This is the most simple action, it just runs the command and flashes the
+  # button to indicate status.
+  #
+  # If you are running OliveTin in a container remember to pass through the
+  # docker socket! https://docs.olivetin.app/solutions/container-control-panel/index.html
+  - title: Ping the Internet
+    shell: ping -c 3 1.1.1.1
+    icon: ping
+    popupOnStart: execution-dialog-stdout-only
+
+  # This uses `popupOnStart: execution-dialog-stdout-only` to simply show just
+  # the command output.
+  - title: Check disk space
+    icon: disk
+    shell: df -h /media
+    popupOnStart: execution-dialog-stdout-only
+
+  # This uses `popupOnStart: execution-dialog` to show a dialog with more
+  # information about the command that was run.
+  - title: check dmesg logs
+    shell: dmesg | tail
+    icon: logs
+    popupOnStart: execution-dialog
+
+  # This uses `popupOnStart: execution-button` to display a mini button that
+  # links to the logs.
+  #
+  # You can also rate-limit actions too.
+  - title: date
+    shell: date
+    id: date
+    timeout: 6
+    icon: clock
+    popupOnStart: execution-button
+    maxRate:
+      - limit: 3
+        duration: 1m
+
+  # You are not limited to operating system commands, and of course you can run
+  # your own scripts. Here `maxConcurrent` stops the script running multiple
+  # times in parallel. There is also a timeout that will kill the command if it
+  # runs for too long.
+  - title: Run backup script
+    shell: /opt/backupScript.sh
+    shellAfterCompleted: "apprise -t 'Notification: Backup script completed' -b 'The backup script completed with code {{ exitCode}}. The log is: \n {{ output }} '"
+    maxConcurrent: 1
+    timeout: 10
+    icon: backup
+    popupOnStart: execution-dialog
+
+  # When you want to prompt users for input, that is when you should use
+  # `arguments` - this presents a popup dialog and asks for argument values.
+  #
+  # Docs: https://docs.olivetin.app/action_examples/ping.html
+  - title: Ping host
+    id: ping_host
+    shell: ping {{ host }} -c {{ count }}
+    icon: ping
+    timeout: 100
+    popupOnStart: execution-dialog-stdout-only
+    arguments:
+      - name: host
+        title: Host
+        type: ascii_identifier
+        default: example.com
+        description: The host that you want to ping
+
+      - name: count
+        title: Count
+        type: int
+        default: 3
+        description: How many times to do you want to ping?
+
+  # OliveTin can control containers - docker is just a command line app.
+  #
+  # However, if you are running in a container you will need to do some setup,
+  # see the docs below.
+  #
+  # Docs: https://docs.olivetin.app/solutions/container-control-panel/index.html
+  - title: Restart Docker Container
+    icon: restart
+    shell: docker restart {{ .CurrentEntity }}
+    arguments:
+      - name: container
+        title: Container name
+        choices:
+          - value: plex
+          - value: traefik
+          - value: grafana
+
+  # There is a special `confirmation` argument to help against accidental clicks
+  # on "dangerous" actions.
+  #
+  # Docs: https://docs.olivetin.app/args/input_confirmation.html
+  - title: Delete old backups
+    icon: ashtonished
+    shell: rm -rf /opt/oldBackups/
+    arguments:
+      - type: html
+        title: Description
+        default:
+          The documentation for this action can be found at <a href = "example.com">example.com</a>.
+      - type: confirmation
+        title: Are you sure?!
+
+  # This is an action that runs a script included with OliveTin, that will
+  # download themes. You will still need to set theme "themeName" in your config.
+  #
+  # Docs: https://docs.olivetin.app/reference/reference_themes_for_users.html
+  - title: Get OliveTin Theme
+    exec: 
+      - "olivetin-get-theme"
+      - "{{ themeGitRepo }}"
+      - "{{ themeFolderName }}"
+    icon: theme
+    arguments:
+      - name: themeGitRepo
+        title: Theme's Git Repository
+        description: Find new themes at https://olivetin.app/themes
+        type: url
+
+      - name: themeFolderName
+        title: Theme's Folder Name
+        type: ascii_identifier
+
+  # Sometimes you want to run actions on other servers - don't overcomplicate
+  # it, just use SSH! OliveTin includes a helper to make this easier, which is
+  # entirely optional. You can also setup SSH manually.
+  #
+  # Docs: https://docs.olivetin.app/action_examples/ssh-easy.html
+  # Docs: https://docs.olivetin.app/action_examples/ssh-manual.html
+  - title: "Setup easy SSH"
+    icon: ssh
+    shell: olivetin-setup-easy-ssh
+    popupOnStart: execution-dialog
+
+  # Here's how to use SSH with the "easy" config, to restart a service on
+  # another server.
+  #
+  # Docs: https://docs.olivetin.app/action_examples/ssh-easy.html
+  # Docs: https://docs.olivetin.app/action_examples/systemd_service.html
+  - title: Restart httpd on server1
+    id: restart_httpd
+    icon: restart
+    timeout: 1
+    shell: ssh -F /config/ssh/easy.cfg root@server1 'service httpd restart'
+
+  # Lots of people use OliveTin to build web interfaces for their electronics
+  # projects. It's best to install OliveTin as a native package (eg, .deb), and
+  # then you can use either a python script or the `gpio` command.
+  - title: Toggle GPIO light
+    shell: gpioset gpiochip1 9=1
+    icon: light
+
+  # There are several built-in shortcuts for the `icon` option, but you
+  # can also just specify any HTML, this includes any unicode character,
+  # or a <img = "..." /> link to a custom icon.
+  #
+  # Docs: https://docs.olivetin.app/action_customization/icons.html
+  #
+  # Lots of people use OliveTin to easily execute ansible-playbooks. You
+  # probably want a much longer timeout as well (so that ansible completes).
+  #
+  # Docs: https://docs.olivetin.app/action_examples/ansible.html
+  - title: "Run Automation Playbook"
+    icon: '&#129302;'
+    shell: ansible-playbook -i /etc/hosts /root/myRepo/myPlaybook.yaml
+    timeout: 120
+
+  # The following actions are "dummy" actions, used in a Dashboard. As long as
+  # you have these referenced in a dashboard, they will not show up in the
+  # `actions` view.
+  - title: Ping hypervisor1
+    shell: echo "hypervisor1 online"
+
+  - title: Ping hypervisor2
+    shell: echo "hypervisor2 online"
+
+  - title: Ping hypervisor3
+    shell: echo "hypervisor3 online"
+
+  - title: Ping hypervisor4
+    shell: echo "hypervisor4 online"
+
+  - title: "{{ server.name }} Wake on Lan"
+    shell: echo "Sending Wake on LAN to {{ server.hostname }}"
+    icon: <iconify-icon icon="carbon:awake"></iconify-icon>
+    entity: server
+
+  - title: "{{ server.name }} Power Off"
+    shell: "echo 'Power Off Server: {{ server.hostname }}'"
+    icon: <iconify-icon icon="carbon:flash-off"></iconify-icon>
+    entity: server
+
+  - title: "{{ server.name }} Print server name"
+    shell: 'echo "Server name: {{ server.name }}"'
+    entity: server
+
+  - title: Ping All Servers
+    shell: "echo 'Ping all servers'"
+    icon: ping
+
+  - title: Start {{ .CurrentEntity.Names }}
+    icon: box
+    shell: docker start {{ .CurrentEntity.Names }}
+    entity: container
+    triggers: ["Update container entity file"]
+
+  - title: Stop {{ .CurrentEntity.Names }}
+    icon: box
+    shell: docker stop {{ .CurrentEntity.Names }}
+    entity: container
+    triggers: ["Update container entity file"]
+
+  # Lastly, you can hide actions from the web UI, this is useful for creating
+  # background helpers that execute only on startup or a cron, for updating
+  # entity files.
+
+  # - title: Update container entity file
+  #   shell: 'docker ps -a --format json > /etc/OliveTin/entities/containers.json'
+  #   hidden: true
+  #   execOnStartup: true
+  #   execOnCron: '*/1 * * * *'
+
+# An entity is something that exists - a "thing", like a VM, or a Container
+# is an entity. OliveTin allows you to then dynamically generate actions based
+# around these entities.
+#
+# This is really useful if you want to generate wake on lan or poweroff actions
+# for `server` entities, for example.
+#
+# A very popular use case that entities were designed for was for `container`
+# entities - in a similar way you could generate `start`, `stop`, and `restart`
+# container actions.
+#
+# Entities are just loaded fome files on disk, OliveTin will also watch these
+# files for updates while OliveTin is running, and update entities.
+#
+# Entities can have properties defined in those files, and those can be used
+# in your configuration as variables. For example; `container.status`,
+# or `vm.hostname`.
+#
+# Docs: https://docs.olivetin.app/entities/intro.html
+  - title: Backup Database
+    id: backup_database
+    icon: "⛁"
+    shell: "mysqldump -u {{ db_user }} -p'{{ db_pass }}' {{ db_name }} > /opt/backups/backup.sql"
+    popupOnStart: execution-dialog
+    arguments:
+      - name: db_user
+        type: ascii_identifier
+        default: backup_svc
+      - name: db_pass
+        type: password
+      - name: db_name
+        type: ascii_identifier
+        default: production
+
+entities:
+  # YAML files are the default expected format, so you can use .yml or .yaml,
+  # or even .txt, as long as the file contains valid a valid yaml LIST, then it
+  # will load properly.
+  #
+  # Docs: https://docs.olivetin.app/entities/intro.html
+  - file: entities/servers.yaml
+    name: server
+
+  - file: entities/containers.json
+    name: container
+
+# Dashboards are a way of taking actions from the default "actions" view, and
+# organizing them into groups - either into folders, or fieldsets.
+#
+# The only way to properly use entities, are to use them with a `fieldset` on
+# a dashboard.
+#
+# Docs: https://docs.olivetin.app/dashboards/intro.html
+dashboards:
+  # Top level items are dashboards.
+  - title: My Servers
+    contents:
+      - title: All Servers
+        type: fieldset
+        contents:
+          # The contents of a dashboard will try to look for an action with a
+          # matching title IF the `contents: ` property is empty.
+          - title: Ping All Servers
+
+          # If you create an item with some "contents:", OliveTin will show that as
+          # directory.
+          - title: Hypervisors
+            contents:
+              - title: Ping hypervisor1
+              - title: Ping hypervisor2
+              - title: More hypervisors
+                type: directory
+                contents:
+                  - title: Ping hypervisor3
+                  - title: Ping hypervisor4
+
+      # If you specify `type: fieldset` and some `contents`, it will show your
+      # actions grouped together without a folder.
+      - type: fieldset
+        entity: server
+        title: 'Server: {{ .CurrentEntity.hostname }}'
+        contents:
+          # By default OliveTin will look for an action with a matching title
+          # and put it on the dashboard.
+          #
+          # Fieldsets  also support `type: display`, which can display arbitary
+          # text. This is useful for displaying things like a container's state.
+          - type: display
+            title: |
+              Hostname: <strong>{{ server.name }}</strong>
+              IP Address: <strong>{{ server.ip }}</strong>
+
+          # These are the actions (defined above) that we want on the dashboard.
+          - title: '{{ server.name }} Wake on Lan'
+          - title: '{{ server.name }} Power Off'
+
+          - title: More Options
+            type: directory
+            contents:
+              - title: '{{ server.name }} Print server name'
+
+  # This is the second dashboard.
+  - title: My Containers
+    contents:
+      - title: 'Container {{ .CurrentEntity.Names }} ({{ .CurrentEntity.Image }})'
+        entity: container
+        type: fieldset
+        contents:
+          - type: display
+            title: |
+              {{ container.RunningFor }} <br /><br /><strong>{{ container.State }}</strong>
+
+          - title: 'Start {{ .CurrentEntity.Names }}'
+          - title: 'Stop {{ .CurrentEntity.Names }}'
+
+
+# Security - Authentication
+
+# This setting effectively enables or disables guests. 
+# If set to "true", then users will have to login to do anything.
+authRequireGuestsToLogin: false
+
+# This form of auth is the simplest to setup - just define users and passwords
+# in the config. OliveTin also supports header-based auth, OAuth2,
+# and JWT authentication which are documented separately.
+#
+# Docs: https://docs.olivetin.app/security/local.html
+# 
+# How to get a hashed password:
+# Docs: https://docs.olivetin.app/security/local.html#_get_a_argon2id_hashed_password
+authLocalUsers:
+  enabled: true
+#  users:
+#    - username: alice
+#      usergroup: admins
+#      password: "$argon2id$v=19$m=65536,t=4,p=2$puyxA0s555TSFx7hnFLCXA$PyhLGpZtvpMMvc2DgMWkM8OJMKO55euwV5gm//1iwx4"
+
+# Security - Access Control
+
+# Policies affect the whole app (eg: ability to view the log list).
+# Docs: https://docs.olivetin.app/security/acl.html
+defaultPolicy:
+  showDiagnostics: true
+  showLogList: true
+
+# Permissions affect actions (eg: ability to view a specific log).
+# Docs: https://docs.olivetin.app/security/acl.html
+defaultPermissions:
+  view: true
+  exec: true
+  logs: true
+
+# OliveTin uses access control lists to match up policy and permissions to users.
+# Docs: https://docs.olivetin.app/security/acl.html
+accessControlLists:
+  - name: admin_acl
+    matchUsergroups: ["admins"]
+    policy:
+      showDiagnostics: true
+    permissions:
+      view: true
+      exec: true
+      logs: true
+
+# OliveTin contains many more configuration options not in this default config.
+# Check out docs.olivetin.app for a setting if you feel like you're missing something.
+
+  - title: Backup Database
+    id: backup_database
