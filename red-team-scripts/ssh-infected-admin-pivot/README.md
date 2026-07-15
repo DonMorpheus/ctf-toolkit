@@ -9,6 +9,8 @@ Skrypty do write-upu **Admin SSH to infected machine? His computer gone.**
 | `pivot_infected_admin.sh` | Auto: agent → proc |
 | `watch_ssh_client_pivot.sh` | **Persistence:** loop na nowe PID `ssh` klienta |
 | `pivot_via_remote_forward.sh` | **Bez `-A`:** tunel `ssh -R` → jego port 22 na localhost |
+| `post_pivot_admin_host.sh` | Po wejściu na PC admina — uruchom `remote_on_admin_host.sh`, zapis do loot |
+| `post_pivot_via_agent.sh` | Agent pivot + zbieranie na adminie w jednym |
 
 ```bash
 chmod +x *.sh
