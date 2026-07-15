@@ -8,6 +8,7 @@ Skrypty do write-upu **Admin SSH to infected machine? His computer gone.**
 | `pivot_proc_root_key.sh` | Admin **`ssh -i`** bez agenta, klient na tym samym hoście |
 | `pivot_infected_admin.sh` | Auto: agent → proc |
 | `watch_ssh_client_pivot.sh` | **Persistence:** loop na nowe PID `ssh` klienta |
+| `pivot_via_remote_forward.sh` | **Bez `-A`:** tunel `ssh -R` → jego port 22 na localhost |
 
 ```bash
 chmod +x *.sh

