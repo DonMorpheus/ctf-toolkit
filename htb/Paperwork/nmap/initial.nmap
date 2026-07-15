@@ -1,0 +1,13 @@
+# Nmap 7.99 scan initiated Sun Jul 12 04:49:17 2026 as: /usr/lib/nmap/nmap -Pn -sC -sV -oA /home/kali/Desktop/htb/Paperwork/nmap/initial 10.129.41.146
+Nmap scan report for paperwork.htb (10.129.41.146)
+Host is up (0.10s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 10.0p2 Ubuntu 5ubuntu5.4 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    nginx 1.28.0 (Ubuntu)
+|_http-title: Intranet | Document Archiving Service
+|_http-server-header: nginx/1.28.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jul 12 04:49:26 2026 -- 1 IP address (1 host up) scanned in 9.61 seconds

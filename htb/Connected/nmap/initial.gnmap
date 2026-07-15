@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Sun Jul 12 04:11:30 2026 as: /usr/lib/nmap/nmap -Pn -sC -sV -oA /home/kali/Desktop/htb/Connected/nmap/initial 10.129.46.7
+Host: 10.129.46.7 (connected.htb)	Status: Up
+Host: 10.129.46.7 (connected.htb)	Ports: 	Ignored State: filtered (1000)
+# Nmap done at Sun Jul 12 04:12:57 2026 -- 1 IP address (1 host up) scanned in 86.80 seconds

@@ -1,0 +1,23 @@
+makesense.htb — schemat (1 strona)
+==================================
+IP: 10.129.32.37 | VPN: release_arena EU | hosts: makesense.htb
+
+RECON: 443 WP 7.0, theme webagency, admin user, contact_submission REST public
+
+USER:
+  1) submit_contact_form → post_id + nonce ze strony
+  2) Klucz: whisper-wrapper.js → ENCRYPTION_KEY=bLs6z8iv3gWpsvyeabFosDjb4YQe7jdU13rI
+  3) encrypt JSON {transcription,summary} → save_voice_results
+  4) summary = stored XSS (admin column echo bez esc_html)
+  5) bot WP user walter → XSS → app password / admin → plugin pwn.php
+  6) wp-config DB walter:JbhHDAEgXvri3! → SSH → user.txt
+
+ROOT:
+  127.0.0.1:8001 Basic walter:same pass | php -S root /root/ocr4/
+  canvas_image PNG → ocr_id → save_output filename.php → GET saved/*.php = RCE root
+
+FLAGI:
+  user  b0dea0a920e4784a4def0bba426bc1d6
+  root  120271b329bd7f1b908101e76dc53434
+
+NIE: czekanie na Processing AI, jeden CVE WP7, public REST = sekrety

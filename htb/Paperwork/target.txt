@@ -1,0 +1,4 @@
+IP=10.129.41.199
+HOSTS=paperwork.htb
+VPN=~/Downloads/release_arena_eu-release-1(1).ovpn
+STATUS=active — reset 2026-07-12 IP 10.129.41.199

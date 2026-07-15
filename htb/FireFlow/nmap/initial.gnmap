@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Jul  7 03:54:22 2026 as: /usr/lib/nmap/nmap -sC -sV -oA /home/kali/Desktop/htb/10.129.244.214/nmap/initial 10.129.244.214
+Host: 10.129.244.214 (htb.target)	Status: Up
+Host: 10.129.244.214 (htb.target)	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 443/open/tcp//ssl|http//nginx/, 9100/filtered/tcp//jetdirect///, 30000/filtered/tcp//ndmps///, 30718/filtered/tcp/////, 30951/filtered/tcp/////, 31038/filtered/tcp/////, 31337/filtered/tcp//Elite///	Ignored State: closed (992)
+# Nmap done at Tue Jul  7 03:54:42 2026 -- 1 IP address (1 host up) scanned in 20.16 seconds

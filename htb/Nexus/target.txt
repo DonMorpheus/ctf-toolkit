@@ -1,0 +1,3 @@
+# Nexus — aktualny target (IP zmienia się po resecie maszyny na HTB)
+IP=10.129.44.62
+HOSTS=nexus.htb

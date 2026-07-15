@@ -1,0 +1,6 @@
+# Connected — aktualny target (IP zmienia się po resecie maszyny na HTB)
+IP=(ostatni solve — patrz loot)
+HOSTS=connected.htb pbxconnect
+VPN=~/Downloads/machines_eu-1.ovpn
+STATUS=completed 2026-07-11 — user + root
+# Po resecie: ping IP, zaktualizuj IP= i /etc/hosts

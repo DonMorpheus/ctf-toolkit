@@ -1,0 +1,30 @@
+# Nmap 7.99 scan initiated Tue Jul  7 03:54:22 2026 as: /usr/lib/nmap/nmap -sC -sV -oA /home/kali/Desktop/htb/10.129.244.214/nmap/initial 10.129.244.214
+Nmap scan report for htb.target (10.129.244.214)
+Host is up (0.12s latency).
+Not shown: 992 closed tcp ports (reset)
+PORT      STATE    SERVICE   VERSION
+22/tcp    open     ssh       OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 0c:4b:d2:76:ab:10:06:92:05:dc:f7:55:94:7f:18:df (ECDSA)
+|_  256 2d:6d:4a:4c:ee:2e:11:b6:c8:90:e6:83:e9:df:38:b0 (ED25519)
+443/tcp   open     ssl/http  nginx
+| tls-alpn: 
+|   http/1.1
+|   http/1.0
+|_  http/0.9
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=fireflow.htb/organizationName=Task Force Nightfall/countryName=US
+| Subject Alternative Name: DNS:fireflow.htb, DNS:*.fireflow.htb
+| Not valid before: 2026-04-14T16:35:31
+|_Not valid after:  2028-07-17T16:35:31
+|_http-title: Did not follow redirect to https://fireflow.htb/
+9100/tcp  filtered jetdirect
+30000/tcp filtered ndmps
+30718/tcp filtered unknown
+30951/tcp filtered unknown
+31038/tcp filtered unknown
+31337/tcp filtered Elite
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jul  7 03:54:42 2026 -- 1 IP address (1 host up) scanned in 20.16 seconds
