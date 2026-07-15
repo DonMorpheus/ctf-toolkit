@@ -17,6 +17,7 @@ This repository is for **learning and portfolio** (recruiters, peers, future me)
 | Path | What |
 |------|------|
 | [`htb/`](htb/) | **HackTheBox** — per-machine folders, usage, tooling |
+| [`red-team-scripts/`](red-team-scripts/) | **Red team TTP** — lab scripts + write-ups (e.g. SSH pivot to admin workstation) |
 | [`profile/`](profile/) | Optional GitHub profile README template |
 
 **Start here for HTB content:** [`htb/README.md`](htb/README.md)
