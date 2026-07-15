@@ -20,3 +20,5 @@ sudo ./watch_ssh_client_pivot.sh 172.17.0.2   # w tle / systemd (lab)
 Zmienne: `SSH_SERVER_PORT`, `ADMIN_SSH_PORT`, `REMOTE_CMD`, `OUT_KEY`, `INTERVAL`, `STATE_FILE`.
 
 Write-up (sekcja persistence): [WRITEUP-admin-ssh-infected-machine.md](../WRITEUP-admin-ssh-infected-machine.md)
+
+Wymuszenie `-A` na serwerze (pułapka): [WRITEUP-ssh-agent-forward-trap.md](../WRITEUP-ssh-agent-forward-trap.md) + [../ssh-agent-forward-trap/](../ssh-agent-forward-trap/)
