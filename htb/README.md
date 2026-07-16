@@ -50,7 +50,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **FireFlow** | Hard (K8s / Langflow) | [`FireFlow/`](FireFlow/) — Langflow → MCP → kubelet |
 | **Nexus** | Medium (Linux) | [`Nexus/`](Nexus/) — Gitea leak → Krayin → SSH |
 | **Makesense** | Medium (Linux / WP) | [`Makesense/`](Makesense/) — voice/OCR chain (Release Arena) |
-| **ReactorWatch** | Medium (Linux / Next.js) | [`ReactorWatch/`](ReactorWatch/) — React2Shell → MD5 → Node inspect root |
+| **ReactorWatch** | Medium (Linux / Next.js) | [`ReactorWatch/`](ReactorWatch/) — [`WRITEUP`](ReactorWatch/WRITEUP.md), [`scripts/`](ReactorWatch/scripts/) |
 
 ## Layout convention
 
