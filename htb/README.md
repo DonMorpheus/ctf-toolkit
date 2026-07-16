@@ -44,8 +44,13 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 
 | Box | Difficulty | Path |
 |-----|------------|------|
-| **Paperwork** | Easy (Linux) | [`Paperwork/`](Paperwork/) → [`paperwork/`](Paperwork/paperwork/) scripts |
+| **Paperwork** | Easy (Linux) | [`Paperwork/`](Paperwork/) — [`WRITEUP.md`](Paperwork/WRITEUP.md), [`edu/`](Paperwork/edu/), [`paperwork/`](Paperwork/paperwork/) scripts |
+| **Connected** | Hard (Linux / FreePBX) | [`Connected/`](Connected/) — CVE-2025-57819, `ha_trigger` privesc |
 | **Enigma** | Easy / Medium (Linux) | [`Enigma/`](Enigma/) — [`WRITEUP.md`](Enigma/WRITEUP.md), [`scripts/`](Enigma/scripts/) |
+| **FireFlow** | Hard (K8s / Langflow) | [`FireFlow/`](FireFlow/) — Langflow → MCP → kubelet |
+| **Nexus** | Medium (Linux) | [`Nexus/`](Nexus/) — Gitea leak → Krayin → SSH |
+| **Makesense** | Medium (Linux / WP) | [`Makesense/`](Makesense/) — voice/OCR chain (Release Arena) |
+| **ReactorWatch** | Medium (Linux / Next.js) | [`ReactorWatch/`](ReactorWatch/) — React2Shell → MD5 → Node inspect root |
 
 ## Layout convention
 
