@@ -51,6 +51,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Nexus** | Medium (Linux) | [`Nexus/`](Nexus/) — Gitea leak → Krayin → SSH |
 | **Makesense** | Medium (Linux / WP) | [`Makesense/`](Makesense/) — voice/OCR chain (Release Arena) |
 | **ReactorWatch** | Medium (Linux / Next.js) | [`ReactorWatch/`](ReactorWatch/) — [`WRITEUP`](ReactorWatch/WRITEUP.md), [`scripts/`](ReactorWatch/scripts/) |
+| **Bedside** | Medium/Hard (Linux / Season 11) | [`Bedside/`](Bedside/) — pdfminer → esm LFI → sudo torch checkpoint |
 
 ## Layout convention
 
