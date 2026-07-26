@@ -1,0 +1,32 @@
+# Example Kerberos config for dual forest (EXT + HTB)
+# Usage: export KRB5_CONFIG=/path/to/this/file
+
+[libdefaults]
+  default_realm = DARKZERO.EXT
+  dns_lookup_realm = false
+  dns_lookup_kdc = false
+  rdns = false
+  dns_canonicalize_hostname = false
+  forwardable = true
+  udp_preference_limit = 0
+
+[realms]
+  DARKZERO.EXT = {
+    kdc = dc02.darkzero.ext
+    admin_server = dc02.darkzero.ext
+  }
+  DARKZERO.HTB = {
+    kdc = dc01.darkzero.htb
+    admin_server = dc01.darkzero.htb
+  }
+
+[domain_realm]
+  .darkzero.ext = DARKZERO.EXT
+  darkzero.ext = DARKZERO.EXT
+  .darkzero.htb = DARKZERO.HTB
+  darkzero.htb = DARKZERO.HTB
+
+# /etc/hosts (or LDAP DNS):
+# 172.16.20.2 dc02.darkzero.ext dc02
+# 172.16.20.1 dc01.darkzero.htb dc01
+# 172.16.20.3 srv01.darkzero.ext srv01

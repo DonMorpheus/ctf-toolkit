@@ -1,0 +1,9 @@
+# Nmap 7.99 scan initiated Sat Jul 25 15:15:26 2026 as: /usr/lib/nmap/nmap -sS -p- --min-rate 3000 -T4 -Pn -oN /home/kali/Desktop/htb/dzcampaigns/nmap/fulltcp2.txt 10.129.49.242
+Nmap scan report for dzcampaigns.htb (10.129.49.242)
+Host is up (0.026s latency).
+Not shown: 65533 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Sat Jul 25 15:16:10 2026 -- 1 IP address (1 host up) scanned in 43.87 seconds

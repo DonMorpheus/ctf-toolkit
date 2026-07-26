@@ -1,0 +1,7 @@
+# Nmap 7.99 scan initiated Sat Jul 25 15:16:10 2026 as: /usr/lib/nmap/nmap -sU --top-ports 50 --min-rate 500 -T4 -Pn -oN /home/kali/Desktop/htb/dzcampaigns/nmap/udp50.txt 10.129.49.242
+Nmap scan report for dzcampaigns.htb (10.129.49.242)
+Host is up.
+All 50 scanned ports on dzcampaigns.htb (10.129.49.242) are in ignored states.
+Not shown: 50 open|filtered udp ports (no-response)
+
+# Nmap done at Sat Jul 25 15:16:11 2026 -- 1 IP address (1 host up) scanned in 1.19 seconds

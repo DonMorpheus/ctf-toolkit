@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Sat Jul 25 15:07:55 2026 as: /usr/lib/nmap/nmap -sS -p- --min-rate 2000 -T4 -oA /home/kali/Desktop/htb/Tournament-10.129.49.242/nmap/fulltcp 10.129.49.242
+Host: 10.129.49.242 ()	Status: Up
+Host: 10.129.49.242 ()	Ports: 22/open/tcp//ssh///, 80/open/tcp//http///	Ignored State: filtered (65533)
+# Nmap done at Sat Jul 25 15:09:01 2026 -- 1 IP address (1 host up) scanned in 66.41 seconds

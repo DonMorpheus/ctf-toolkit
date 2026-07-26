@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Sat Jul 25 15:08:14 2026 as: /usr/lib/nmap/nmap -sV -sC -Pn -T4 --top-ports 1000 -oA /home/kali/Desktop/htb/Tournament-10.129.49.242/nmap/top1k 10.129.49.242
+Host: 10.129.49.242 ()	Status: Up
+Host: 10.129.49.242 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.18 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//nginx 1.24.0 (Ubuntu)/	Ignored State: filtered (998)
+# Nmap done at Sat Jul 25 15:08:32 2026 -- 1 IP address (1 host up) scanned in 18.24 seconds
