@@ -15,7 +15,6 @@ ip -br a | grep tun
 ```bash
 ssh -i ~/.ssh/dz_svc svc-runner@<IP>
 cat ~/user.txt
-# c7bdc928e2323c1431ab6f256138dfe9
 ```
 
 ## Path summary
@@ -54,7 +53,6 @@ python3 scripts/smb_bo_get.py --path 'Users\\Administrator\\Desktop\\root.txt' -
 ```
 
 ```text
-a8bc729d79df8ea999fad2a1471cacb7
 ```
 
 ## Pivot

@@ -16,10 +16,7 @@
 
 ## Flags
 
-| Flag | Value |
-|------|-------|
-| user | c7bdc928e2323c1431ab6f256138dfe9 |
-| system | a8bc729d79df8ea999fad2a1471cacb7 |
+User / system: **read on box** (`~/user.txt`, DC01 `Desktop\root.txt`). Not published here.
 
 ## Attack chain (ordered)
 

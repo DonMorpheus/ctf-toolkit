@@ -158,7 +158,7 @@ Oficjalny runner: label **`ubuntu`** / host runner w domenie (`ubuntu-domain-run
 ```bash
 ssh -i ~/.ssh/dz_svc svc-runner@10.129.x.x
 cat ~/user.txt
-# c7bdc928e2323c1431ab6f256138dfe9
+# <user flag — submit on HTB>
 ```
 
 svc-runner: memberOf **ServiceHandler**, keytab `/etc/gitea-runner/svc-runner.keytab`, UAC don’t-expire.
@@ -288,25 +288,19 @@ python3 scripts/smb_bo_get.py \
 
 ---
 
-## 9. Flagi i access
+## 9. Access (bez flag w repo)
 
 ### User
 
-```
-c7bdc928e2323c1431ab6f256138dfe9
-```
-
 ```bash
 ssh -i ~/.ssh/dz_svc svc-runner@<IP>
+cat ~/user.txt   # flag — sam zbierz
 ```
 
 ### System
 
-```
-a8bc729d79df8ea999fad2a1471cacb7
-```
-
-`C:\Users\Administrator\Desktop\root.txt` (DC01).
+`C:\Users\Administrator\Desktop\root.txt` na DC01 (po BO ExtraSID + backup intent).  
+Flag: **nie w repo** — `cat` / `smb_bo_get.py` u siebie.
 
 ### Szybkie creds
 
