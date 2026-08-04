@@ -53,6 +53,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **ReactorWatch** | Medium (Linux / Next.js) | [`ReactorWatch/`](ReactorWatch/) — [`WRITEUP`](ReactorWatch/WRITEUP.md), [`scripts/`](ReactorWatch/scripts/) |
 | **DZCampaigns** | Hard (Linux + dual AD) | [`DZCampaigns/`](DZCampaigns/) — Handlebars AST RCE → Gitea runner → ExtraSID BO |
 | **Bedside** | Medium/Hard (Linux / Season 11) | [`Bedside/`](Bedside/) — pdfminer → esm LFI → sudo torch checkpoint |
+| **Silentium** | Easy (Linux) | [`Silentium/`](Silentium/) — Flowise takeover/RCE → SSH → Gogs CVE-2025-8110 |
 
 ## Layout convention
 
