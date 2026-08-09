@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Sun Aug  9 06:39:27 2026 as: /usr/lib/nmap/nmap -&#45;privileged -sV -sC -Pn -n -p 53,80,88,135,139,389,443,445,464,593,636,3268,3269,3389,6600,9389,49664,49679,49680,49685,49686,49693,49711,49716,49750 -oA /home/kali/Desktop/htb/danglingtree/nmap/anderson-host-sv 10.129.6.118 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -sV -sC -Pn -n -p 53,80,88,135,139,389,443,445,464,593,636,3268,3269,3389,6600,9389,49664,49679,49680,49685,49686,49693,49711,49716,49750 -oA /home/kali/Desktop/htb/danglingtree/nmap/anderson-host-sv 10.129.6.118" start="1786271967" startstr="Sun Aug  9 06:39:27 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="25" services="53,80,88,135,139,389,443,445,464,593,636,3268-3269,3389,6600,9389,49664,49679-49680,49685-49686,49693,49711,49716,49750"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1786271967" endtime="1786272169"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.129.6.118" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="domain" product="Simple DNS Plus" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:jh_software:simple_dns_plus</cpe><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:internet_information_services:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-title" output="IIS Windows Server"><elem key="title">IIS Windows Server</elem>
+</script><script id="http-methods" output="&#xa;  Potentially risky methods: TRACE"><table key="Potentially risky methods">
+<elem>TRACE</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="88"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="kerberos-sec" product="Microsoft Windows Kerberos" extrainfo="server time: 2026-08-09 17:39:34Z" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:kerberos</cpe><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="netbios-ssn" product="Microsoft Windows netbios-ssn" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="389"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: danglingtree.htb, Site: Default-First-Site-Name" hostname="DC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-cert" output="Subject: &#xa;Subject Alternative Name: DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE&#xa;Not valid before: 2026-08-03T16:32:53&#xa;Not valid after:  2106-08-03T16:32:53"><table key="subject">
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C81527CA73D9CA4C26DCA17BEAA8C491D8929A1E6DB075538A3C72C2D26363803E64676C61EA0CA4C935BA8A6D83799A331FE8D48FF37C7552C65F8E58F60472A0D7C963180DE789F8B2304C7AB8BD50D34EFAA6F7A9C458CCF850A42E6D08E7F363F823272B2BAF530C1486AA02BE144899D030D87AB298F78F08B8794EDA2396C6230DF525A28AA22DDF0B60061E5902EBFA7825EA1D76246628428372FA51958CF6EF32FF2C68E587C76FBC126D820603FC5AA485544224560938D9548A60FDD667EEC710B81155E0CEDC605DBF2286370B09EF658EFBF02A6EA74F19EF23850CDB639D50D631F201A1BB6EFBBBA8FDA46A2EBED9CB460AC92498C1B55215</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">Microsoft certificate template</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication, Microsoft Smartcard Login, Signing KDC Response</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft Application Policies Extension</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">93:8B:52:BB:F8:4E:B7:B3:BB:94:23:C0:61:CF:9E:DA:B1:5F:A4:7B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">C0:F5:7D:AD:21:54:C5:70:CF:75:AB:04:C9:65:78:95:57:87:CD:1A</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=danglingtree-DC-CA(2),CN=dc,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=danglingtree-DC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft NTDS CA Extension</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-08-03T16:32:53</elem>
+<elem key="notAfter">2106-08-03T16:32:53</elem>
+</table>
+<elem key="md5">82672fbc2f8c4d515f851b63bbb35a40</elem>
+<elem key="sha1">d65781fd541acd7eaf8b1a69150f1a2993365f71</elem>
+<elem key="sha256">64ea25993558b8561c71bcdebf7aa71afdbcb48ef17fc991d47e9f2c83261222</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIHGTCCBQGgAwIBAgITHgAAAA5tmFJzZxJYSAACAAAADjANBgkqhkiG9w0BAQsF&#xa;ADBQMRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xp&#xa;bmd0cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwIBcNMjYwODAzMTYz&#xa;MjUzWhgPMjEwNjA4MDMxNjMyNTNaMAAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw&#xa;ggEKAoIBAQDIFSfKc9nKTCbcoXvqqMSR2JKaHm2wdVOKPHLC0mNjgD5kZ2xh6gyk&#xa;yTW6im2DeZozH+jUj/N8dVLGX45Y9gRyoNfJYxgN54n4sjBMeri9UNNO+qb3qcRY&#xa;zPhQpC5tCOfzY/gjJysrr1MMFIaqAr4USJnQMNh6spj3jwi4eU7aI5bGIw31JaKK&#xa;oi3fC2AGHlkC6/p4JeoddiRmKEKDcvpRlYz27zL/LGjlh8dvvBJtggYD/FqkhVRC&#xa;JFYJONlUimD91mfuxxC4EVXgztxgXb8ihjcLCe9ljvvwKm6nTxnvI4UM22OdUNYx&#xa;8gGhu277u6j9pGouvtnLRgrJJJjBtVIVAgMBAAGjggM4MIIDNDA4BgkrBgEEAYI3&#xa;FQcEKzApBiErBgEEAYI3FQiGpuR/h4aIAIWRgQuF84N4hYuqEIEuASECAW4CAQAw&#xa;MgYDVR0lBCswKQYIKwYBBQUHAwIGCCsGAQUFBwMBBgorBgEEAYI3FAICBgcrBgEF&#xa;AgMFMA4GA1UdDwEB/wQEAwIFoDBABgkrBgEEAYI3FQoEMzAxMAoGCCsGAQUFBwMC&#xa;MAoGCCsGAQUFBwMBMAwGCisGAQQBgjcUAgIwCQYHKwYBBQIDBTAdBgNVHQ4EFgQU&#xa;k4tSu/hOt7O7lCPAYc+e2rFfpHswHwYDVR0jBBgwFoAUwPV9rSFUxXDPdasEyWV4&#xa;lVeHzRowgdMGA1UdHwSByzCByDCBxaCBwqCBv4aBvGxkYXA6Ly8vQ049ZGFuZ2xp&#xa;bmd0cmVlLURDLUNBKDIpLENOPWRjLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRhbmdsaW5n&#xa;dHJlZSxEQz1odGI/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVj&#xa;dENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MIHJBggrBgEFBQcBAQSBvDCBuTCB&#xa;tgYIKwYBBQUHMAKGgalsZGFwOi8vL0NOPWRhbmdsaW5ndHJlZS1EQy1DQSxDTj1B&#xa;SUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29u&#xa;ZmlndXJhdGlvbixEQz1kYW5nbGluZ3RyZWUsREM9aHRiP2NBQ2VydGlmaWNhdGU/&#xa;YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MEEGA1UdEQEB&#xa;/wQ3MDWCE2RjLmRhbmdsaW5ndHJlZS5odGKCEGRhbmdsaW5ndHJlZS5odGKCDERB&#xa;TkdMSU5HVFJFRTBNBgkrBgEEAYI3GQIEQDA+oDwGCisGAQQBgjcZAgGgLgQsUy0x&#xa;LTUtMjEtNDIyMDIzODMzMi01NzAyMzcyOC0xMTI5MTEwNjQ2LTEwMDAwDQYJKoZI&#xa;hvcNAQELBQADggIBAAHAz84BKh0DGMV9YEg2L/ddBbp5GTj1R5xSmOt9nFGb4UDO&#xa;96HOFHq1rnlFswd9oEAz+gG4bIt6CiLQ+/EFEf1O8cBiDTAsS3F16ffF+dvdRwCM&#xa;oU7RBx2Tc3gQOLRFysfZ5QabG189CcneKoz9qTt7nWfX5Zj/xeR8Vn3aDv0J9h72&#xa;DVu67Prh9QR85dur8aq62G4BdpnhpleWkIrVTahvZvk+ZdQ6mo98lMDVt13ILX/o&#xa;jJ8nTE5Pe1JMqyjnjPn++1JSqDLUbxvXPWaQZbnc3NZRGWWC6DfaaiIqTTAFSk68&#xa;bfYHNu8PDPGWgeNhzYSSCNbeHVfx/qp474ITfIwMY2DxJBcbXLFFKgFsawKi7Aza&#xa;bsFq16tMSTcQjRrJaXaB9yDKry57lwtGAlRJaVzQXZ4lW49eYcwJC5fHIOAftCZ/&#xa;0VYS8H7TR9+2e2m/UY83JX965+fmVbh5VfFPhKgow5clTLDE2cJ2i1RLMwaRCHSn&#xa;kWYFWuhlBHD3YGNMlXILXF32w2WbeJCLGIQV8o8KUTbKOBRoAwaV35bsECanZ+sI&#xa;l1m1fqiq7Bruu+ftv7dP9dOHW0ZFnXeMWW4UAo/JGdY0AlHd/P3quZkEQv+OP3IT&#xa;wbON87Eu+ImljefcU5kALJZCGWIBpNBowe490QkpoLwPiG9WXqgWkf/JBMYy&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="https" tunnel="ssl" method="table" conf="3"/><script id="ssl-cert" output="Subject: commonName=danglingtree-DC-CA&#xa;Not valid before: 2026-03-26T05:34:19&#xa;Not valid after:  2114-03-26T05:44:18"><table key="subject">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">4096</elem>
+<elem key="modulus">C27DA654771613B8B823EB2B03D5733A43112946512D115E3CBC8084CDA9D3B7541362EB75CE0239FD1636C1C37546590BF152865F5F8FD17D2F413E71EED72F767E7618614ED93CE0ADBD8F7DFDEC68A45EC165AE1EC10B6B2F966150FE2A4F0D7B65892767CD9AF5F71A935021174C3BA137045B7F139EC494651B6181C1CB7E4EC437E6E6DB3E659B6DDE4CD05FB6212251DB58DE1CF84287D602D4C6A1101AB565711DBC0515D6C788D3C9341E82175CD1618F7A9A1C6B15BDFCB91239F6C9FC5CD36553BF6F5704280B0E5FE484B445377BB8E5EDD37C3799B1126AD3DA2E7DEC39ECBC93F53CD0F8E23B24199A3FFD1ABC02AAB5165B26A7CF636310441EA6394773D980C9F9DB98FA3841C7F62E8858D0388965A11F727C976936C41AF26FF95469F3A299EBE22613508FFAC7E57DDD5A2A4E6EAECE609171C3B35E6860FECB180B6BE2E25B8CF3B18A719CDD41157404BDD66C81D730978993858A064816EDED10E591C12D461AC7A84BE2E04CB9C56A8A35724D72964C53D7CB9DFD6F8A9E7DA853F066B318CC71D98C0C2AFE27AAF0036AC79A041A3F8C143A46CF91CEF17633A243293E588B125F9DD526A52691F8EB9754DDD3344CFAF7A4C8D446682A6F19089D69F9B03FB69C03BE1727CFAF0FF37232F0691F292DB305D7874B65A2D999841B449EE78D2DBA34F47D889C1299E83350C7D0F76BB8C176CF3D</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Certificate Sign, CRL Sign</elem>
+</table>
+<table>
+<elem key="name">X509v3 Basic Constraints</elem>
+<elem key="value">CA:TRUE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">82:E1:BF:07:3C:35:0B:1E:49:14:D3:31:E0:80:9A:29:3F:4D:1E:F5</elem>
+</table>
+<table>
+<elem key="name">1.3.6.1.4.1.311.21.1</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-03-26T05:34:19</elem>
+<elem key="notAfter">2114-03-26T05:44:18</elem>
+</table>
+<elem key="md5">9054595fc5e0bb67628ff4fc8d82a8cf</elem>
+<elem key="sha1">9733440c1fd9f7c9db9ed4e869b77b8e8e717781</elem>
+<elem key="sha256">fb017a29c4a93beedb842c1d77e46cd3d00b89d88229a712c4cadb44367829a0</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIFfTCCA2WgAwIBAgIQYN9cBM7vHJBM3yjtuX75JTANBgkqhkiG9w0BAQsFADBQ&#xa;MRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xpbmd0&#xa;cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwIBcNMjYwMzI2MDUzNDE5&#xa;WhgPMjExNDAzMjYwNTQ0MThaMFAxEzARBgoJkiaJk/IsZAEZFgNodGIxHDAaBgoJ&#xa;kiaJk/IsZAEZFgxkYW5nbGluZ3RyZWUxGzAZBgNVBAMTEmRhbmdsaW5ndHJlZS1E&#xa;Qy1DQTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMJ9plR3FhO4uCPr&#xa;KwPVczpDESlGUS0RXjy8gITNqdO3VBNi63XOAjn9FjbBw3VGWQvxUoZfX4/RfS9B&#xa;PnHu1y92fnYYYU7ZPOCtvY99/exopF7BZa4ewQtrL5ZhUP4qTw17ZYknZ82a9fca&#xa;k1AhF0w7oTcEW38TnsSUZRthgcHLfk7EN+bm2z5lm23eTNBftiEiUdtY3hz4QofW&#xa;AtTGoRAatWVxHbwFFdbHiNPJNB6CF1zRYY96mhxrFb38uRI59sn8XNNlU79vVwQo&#xa;Cw5f5IS0RTd7uOXt03w3mbESatPaLn3sOey8k/U80PjiOyQZmj/9GrwCqrUWWyan&#xa;z2NjEEQepjlHc9mAyfnbmPo4Qcf2LohY0DiJZaEfcnyXaTbEGvJv+VRp86KZ6+Im&#xa;E1CP+sflfd1aKk5urs5gkXHDs15oYP7LGAtr4uJbjPOxinGc3UEVdAS91myB1zCX&#xa;iZOFigZIFu3tEOWRwS1GGseoS+LgTLnFaoo1ck1ylkxT18ud/W+Knn2oU/BmsxjM&#xa;cdmMDCr+J6rwA2rHmgQaP4wUOkbPkc7xdjOiQyk+WIsSX53VJqUmkfjrl1Td0zRM&#xa;+vekyNRGaCpvGQidafmwP7acA74XJ8+vD/NyMvBpHyktswXXh0tlotmZhBtEnueN&#xa;Lbo09H2InBKZ6DNQx9D3a7jBds89AgMBAAGjUTBPMAsGA1UdDwQEAwIBhjAPBgNV&#xa;HRMBAf8EBTADAQH/MB0GA1UdDgQWBBSC4b8HPDULHkkU0zHggJopP00e9TAQBgkr&#xa;BgEEAYI3FQEEAwIBADANBgkqhkiG9w0BAQsFAAOCAgEAq/8Xg7bG3KX/WDKUl9ff&#xa;XMAsjh3wkta3X6sWCKeqshEb1yz9T+N9NSUEul0HaJlvSErMvQqVDQyOs9k2rgzw&#xa;3hL4EJaeyYIln+9itkkdIQecfbTwPPxqDeJAFaOqDv5JZ7ypo3Lr5AflvC9U+4+4&#xa;SGfqr8PVhoSktFgDp9VP4cZfoi6EhTvxHJ/ZMeHVv6Ky6QtzCdeH1fs/aEGQ71D3&#xa;Tc/Mwacf1A3YQCVDp9B3MQ6jbNOoE3qaGuRHvK0tjkFfKR72CrA0GYe4E9gyqPmo&#xa;T6IJhcV4JfozTbya1R3A2pSdpt2Skxh7vxQQ1uAUp/iZ5ThhzaG+PIwYmfl05Daq&#xa;aPhm5hE3clCdoMZHjcfIf+5sw+W8LqNUxaIxNVuK61Oh1H4QKMkhTPNTX80Nz99N&#xa;L+4JrWnD5mV33FhpZXbbZdzDsCGgqrLiNAufceyWsrRAgfOIq12UL1VhaY9CLXKT&#xa;YJ4jmKrnmwd29oeHvZTXWosXCgOoU0pPPuFwxqDVxd9ctiC/xMnTRf4o6D+SvApR&#xa;KoubwtRGV0pqjbvEVcTwYb2oxL9uIa9ecQeHfWzKFiqdyYBrQw+M/dH8z/wqo76q&#xa;bDxec0o/QfgPZSzVKh9u9AGV8fKmG0aqhdh4iWn8GUBQTsiBeCdL1E1RT55lN4k/&#xa;THnYKHaL8sIUizOeG6eZHbY=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="tls-alpn" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="464"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="kpasswd5" method="table" conf="3"/></port>
+<port protocol="tcp" portid="593"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ncacn_http" product="Microsoft Windows RPC over HTTP" version="1.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="636"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: danglingtree.htb, Site: Default-First-Site-Name" hostname="DC" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-cert" output="Subject: &#xa;Subject Alternative Name: DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE&#xa;Not valid before: 2026-08-03T16:32:53&#xa;Not valid after:  2106-08-03T16:32:53"><table key="subject">
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C81527CA73D9CA4C26DCA17BEAA8C491D8929A1E6DB075538A3C72C2D26363803E64676C61EA0CA4C935BA8A6D83799A331FE8D48FF37C7552C65F8E58F60472A0D7C963180DE789F8B2304C7AB8BD50D34EFAA6F7A9C458CCF850A42E6D08E7F363F823272B2BAF530C1486AA02BE144899D030D87AB298F78F08B8794EDA2396C6230DF525A28AA22DDF0B60061E5902EBFA7825EA1D76246628428372FA51958CF6EF32FF2C68E587C76FBC126D820603FC5AA485544224560938D9548A60FDD667EEC710B81155E0CEDC605DBF2286370B09EF658EFBF02A6EA74F19EF23850CDB639D50D631F201A1BB6EFBBBA8FDA46A2EBED9CB460AC92498C1B55215</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">Microsoft certificate template</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication, Microsoft Smartcard Login, Signing KDC Response</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft Application Policies Extension</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">93:8B:52:BB:F8:4E:B7:B3:BB:94:23:C0:61:CF:9E:DA:B1:5F:A4:7B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">C0:F5:7D:AD:21:54:C5:70:CF:75:AB:04:C9:65:78:95:57:87:CD:1A</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=danglingtree-DC-CA(2),CN=dc,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=danglingtree-DC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft NTDS CA Extension</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-08-03T16:32:53</elem>
+<elem key="notAfter">2106-08-03T16:32:53</elem>
+</table>
+<elem key="md5">82672fbc2f8c4d515f851b63bbb35a40</elem>
+<elem key="sha1">d65781fd541acd7eaf8b1a69150f1a2993365f71</elem>
+<elem key="sha256">64ea25993558b8561c71bcdebf7aa71afdbcb48ef17fc991d47e9f2c83261222</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIHGTCCBQGgAwIBAgITHgAAAA5tmFJzZxJYSAACAAAADjANBgkqhkiG9w0BAQsF&#xa;ADBQMRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xp&#xa;bmd0cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwIBcNMjYwODAzMTYz&#xa;MjUzWhgPMjEwNjA4MDMxNjMyNTNaMAAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw&#xa;ggEKAoIBAQDIFSfKc9nKTCbcoXvqqMSR2JKaHm2wdVOKPHLC0mNjgD5kZ2xh6gyk&#xa;yTW6im2DeZozH+jUj/N8dVLGX45Y9gRyoNfJYxgN54n4sjBMeri9UNNO+qb3qcRY&#xa;zPhQpC5tCOfzY/gjJysrr1MMFIaqAr4USJnQMNh6spj3jwi4eU7aI5bGIw31JaKK&#xa;oi3fC2AGHlkC6/p4JeoddiRmKEKDcvpRlYz27zL/LGjlh8dvvBJtggYD/FqkhVRC&#xa;JFYJONlUimD91mfuxxC4EVXgztxgXb8ihjcLCe9ljvvwKm6nTxnvI4UM22OdUNYx&#xa;8gGhu277u6j9pGouvtnLRgrJJJjBtVIVAgMBAAGjggM4MIIDNDA4BgkrBgEEAYI3&#xa;FQcEKzApBiErBgEEAYI3FQiGpuR/h4aIAIWRgQuF84N4hYuqEIEuASECAW4CAQAw&#xa;MgYDVR0lBCswKQYIKwYBBQUHAwIGCCsGAQUFBwMBBgorBgEEAYI3FAICBgcrBgEF&#xa;AgMFMA4GA1UdDwEB/wQEAwIFoDBABgkrBgEEAYI3FQoEMzAxMAoGCCsGAQUFBwMC&#xa;MAoGCCsGAQUFBwMBMAwGCisGAQQBgjcUAgIwCQYHKwYBBQIDBTAdBgNVHQ4EFgQU&#xa;k4tSu/hOt7O7lCPAYc+e2rFfpHswHwYDVR0jBBgwFoAUwPV9rSFUxXDPdasEyWV4&#xa;lVeHzRowgdMGA1UdHwSByzCByDCBxaCBwqCBv4aBvGxkYXA6Ly8vQ049ZGFuZ2xp&#xa;bmd0cmVlLURDLUNBKDIpLENOPWRjLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRhbmdsaW5n&#xa;dHJlZSxEQz1odGI/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVj&#xa;dENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MIHJBggrBgEFBQcBAQSBvDCBuTCB&#xa;tgYIKwYBBQUHMAKGgalsZGFwOi8vL0NOPWRhbmdsaW5ndHJlZS1EQy1DQSxDTj1B&#xa;SUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29u&#xa;ZmlndXJhdGlvbixEQz1kYW5nbGluZ3RyZWUsREM9aHRiP2NBQ2VydGlmaWNhdGU/&#xa;YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MEEGA1UdEQEB&#xa;/wQ3MDWCE2RjLmRhbmdsaW5ndHJlZS5odGKCEGRhbmdsaW5ndHJlZS5odGKCDERB&#xa;TkdMSU5HVFJFRTBNBgkrBgEEAYI3GQIEQDA+oDwGCisGAQQBgjcZAgGgLgQsUy0x&#xa;LTUtMjEtNDIyMDIzODMzMi01NzAyMzcyOC0xMTI5MTEwNjQ2LTEwMDAwDQYJKoZI&#xa;hvcNAQELBQADggIBAAHAz84BKh0DGMV9YEg2L/ddBbp5GTj1R5xSmOt9nFGb4UDO&#xa;96HOFHq1rnlFswd9oEAz+gG4bIt6CiLQ+/EFEf1O8cBiDTAsS3F16ffF+dvdRwCM&#xa;oU7RBx2Tc3gQOLRFysfZ5QabG189CcneKoz9qTt7nWfX5Zj/xeR8Vn3aDv0J9h72&#xa;DVu67Prh9QR85dur8aq62G4BdpnhpleWkIrVTahvZvk+ZdQ6mo98lMDVt13ILX/o&#xa;jJ8nTE5Pe1JMqyjnjPn++1JSqDLUbxvXPWaQZbnc3NZRGWWC6DfaaiIqTTAFSk68&#xa;bfYHNu8PDPGWgeNhzYSSCNbeHVfx/qp474ITfIwMY2DxJBcbXLFFKgFsawKi7Aza&#xa;bsFq16tMSTcQjRrJaXaB9yDKry57lwtGAlRJaVzQXZ4lW49eYcwJC5fHIOAftCZ/&#xa;0VYS8H7TR9+2e2m/UY83JX965+fmVbh5VfFPhKgow5clTLDE2cJ2i1RLMwaRCHSn&#xa;kWYFWuhlBHD3YGNMlXILXF32w2WbeJCLGIQV8o8KUTbKOBRoAwaV35bsECanZ+sI&#xa;l1m1fqiq7Bruu+ftv7dP9dOHW0ZFnXeMWW4UAo/JGdY0AlHd/P3quZkEQv+OP3IT&#xa;wbON87Eu+ImljefcU5kALJZCGWIBpNBowe490QkpoLwPiG9WXqgWkf/JBMYy&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="3268"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: danglingtree.htb, Site: Default-First-Site-Name" hostname="DC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-cert" output="Subject: &#xa;Subject Alternative Name: DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE&#xa;Not valid before: 2026-08-03T16:32:53&#xa;Not valid after:  2106-08-03T16:32:53"><table key="subject">
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C81527CA73D9CA4C26DCA17BEAA8C491D8929A1E6DB075538A3C72C2D26363803E64676C61EA0CA4C935BA8A6D83799A331FE8D48FF37C7552C65F8E58F60472A0D7C963180DE789F8B2304C7AB8BD50D34EFAA6F7A9C458CCF850A42E6D08E7F363F823272B2BAF530C1486AA02BE144899D030D87AB298F78F08B8794EDA2396C6230DF525A28AA22DDF0B60061E5902EBFA7825EA1D76246628428372FA51958CF6EF32FF2C68E587C76FBC126D820603FC5AA485544224560938D9548A60FDD667EEC710B81155E0CEDC605DBF2286370B09EF658EFBF02A6EA74F19EF23850CDB639D50D631F201A1BB6EFBBBA8FDA46A2EBED9CB460AC92498C1B55215</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">Microsoft certificate template</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication, Microsoft Smartcard Login, Signing KDC Response</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft Application Policies Extension</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">93:8B:52:BB:F8:4E:B7:B3:BB:94:23:C0:61:CF:9E:DA:B1:5F:A4:7B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">C0:F5:7D:AD:21:54:C5:70:CF:75:AB:04:C9:65:78:95:57:87:CD:1A</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=danglingtree-DC-CA(2),CN=dc,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=danglingtree-DC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft NTDS CA Extension</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-08-03T16:32:53</elem>
+<elem key="notAfter">2106-08-03T16:32:53</elem>
+</table>
+<elem key="md5">82672fbc2f8c4d515f851b63bbb35a40</elem>
+<elem key="sha1">d65781fd541acd7eaf8b1a69150f1a2993365f71</elem>
+<elem key="sha256">64ea25993558b8561c71bcdebf7aa71afdbcb48ef17fc991d47e9f2c83261222</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIHGTCCBQGgAwIBAgITHgAAAA5tmFJzZxJYSAACAAAADjANBgkqhkiG9w0BAQsF&#xa;ADBQMRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xp&#xa;bmd0cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwIBcNMjYwODAzMTYz&#xa;MjUzWhgPMjEwNjA4MDMxNjMyNTNaMAAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw&#xa;ggEKAoIBAQDIFSfKc9nKTCbcoXvqqMSR2JKaHm2wdVOKPHLC0mNjgD5kZ2xh6gyk&#xa;yTW6im2DeZozH+jUj/N8dVLGX45Y9gRyoNfJYxgN54n4sjBMeri9UNNO+qb3qcRY&#xa;zPhQpC5tCOfzY/gjJysrr1MMFIaqAr4USJnQMNh6spj3jwi4eU7aI5bGIw31JaKK&#xa;oi3fC2AGHlkC6/p4JeoddiRmKEKDcvpRlYz27zL/LGjlh8dvvBJtggYD/FqkhVRC&#xa;JFYJONlUimD91mfuxxC4EVXgztxgXb8ihjcLCe9ljvvwKm6nTxnvI4UM22OdUNYx&#xa;8gGhu277u6j9pGouvtnLRgrJJJjBtVIVAgMBAAGjggM4MIIDNDA4BgkrBgEEAYI3&#xa;FQcEKzApBiErBgEEAYI3FQiGpuR/h4aIAIWRgQuF84N4hYuqEIEuASECAW4CAQAw&#xa;MgYDVR0lBCswKQYIKwYBBQUHAwIGCCsGAQUFBwMBBgorBgEEAYI3FAICBgcrBgEF&#xa;AgMFMA4GA1UdDwEB/wQEAwIFoDBABgkrBgEEAYI3FQoEMzAxMAoGCCsGAQUFBwMC&#xa;MAoGCCsGAQUFBwMBMAwGCisGAQQBgjcUAgIwCQYHKwYBBQIDBTAdBgNVHQ4EFgQU&#xa;k4tSu/hOt7O7lCPAYc+e2rFfpHswHwYDVR0jBBgwFoAUwPV9rSFUxXDPdasEyWV4&#xa;lVeHzRowgdMGA1UdHwSByzCByDCBxaCBwqCBv4aBvGxkYXA6Ly8vQ049ZGFuZ2xp&#xa;bmd0cmVlLURDLUNBKDIpLENOPWRjLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRhbmdsaW5n&#xa;dHJlZSxEQz1odGI/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVj&#xa;dENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MIHJBggrBgEFBQcBAQSBvDCBuTCB&#xa;tgYIKwYBBQUHMAKGgalsZGFwOi8vL0NOPWRhbmdsaW5ndHJlZS1EQy1DQSxDTj1B&#xa;SUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29u&#xa;ZmlndXJhdGlvbixEQz1kYW5nbGluZ3RyZWUsREM9aHRiP2NBQ2VydGlmaWNhdGU/&#xa;YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MEEGA1UdEQEB&#xa;/wQ3MDWCE2RjLmRhbmdsaW5ndHJlZS5odGKCEGRhbmdsaW5ndHJlZS5odGKCDERB&#xa;TkdMSU5HVFJFRTBNBgkrBgEEAYI3GQIEQDA+oDwGCisGAQQBgjcZAgGgLgQsUy0x&#xa;LTUtMjEtNDIyMDIzODMzMi01NzAyMzcyOC0xMTI5MTEwNjQ2LTEwMDAwDQYJKoZI&#xa;hvcNAQELBQADggIBAAHAz84BKh0DGMV9YEg2L/ddBbp5GTj1R5xSmOt9nFGb4UDO&#xa;96HOFHq1rnlFswd9oEAz+gG4bIt6CiLQ+/EFEf1O8cBiDTAsS3F16ffF+dvdRwCM&#xa;oU7RBx2Tc3gQOLRFysfZ5QabG189CcneKoz9qTt7nWfX5Zj/xeR8Vn3aDv0J9h72&#xa;DVu67Prh9QR85dur8aq62G4BdpnhpleWkIrVTahvZvk+ZdQ6mo98lMDVt13ILX/o&#xa;jJ8nTE5Pe1JMqyjnjPn++1JSqDLUbxvXPWaQZbnc3NZRGWWC6DfaaiIqTTAFSk68&#xa;bfYHNu8PDPGWgeNhzYSSCNbeHVfx/qp474ITfIwMY2DxJBcbXLFFKgFsawKi7Aza&#xa;bsFq16tMSTcQjRrJaXaB9yDKry57lwtGAlRJaVzQXZ4lW49eYcwJC5fHIOAftCZ/&#xa;0VYS8H7TR9+2e2m/UY83JX965+fmVbh5VfFPhKgow5clTLDE2cJ2i1RLMwaRCHSn&#xa;kWYFWuhlBHD3YGNMlXILXF32w2WbeJCLGIQV8o8KUTbKOBRoAwaV35bsECanZ+sI&#xa;l1m1fqiq7Bruu+ftv7dP9dOHW0ZFnXeMWW4UAo/JGdY0AlHd/P3quZkEQv+OP3IT&#xa;wbON87Eu+ImljefcU5kALJZCGWIBpNBowe490QkpoLwPiG9WXqgWkf/JBMYy&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="3269"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: danglingtree.htb, Site: Default-First-Site-Name" hostname="DC" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-cert" output="Subject: &#xa;Subject Alternative Name: DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE&#xa;Not valid before: 2026-08-03T16:32:53&#xa;Not valid after:  2106-08-03T16:32:53"><table key="subject">
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C81527CA73D9CA4C26DCA17BEAA8C491D8929A1E6DB075538A3C72C2D26363803E64676C61EA0CA4C935BA8A6D83799A331FE8D48FF37C7552C65F8E58F60472A0D7C963180DE789F8B2304C7AB8BD50D34EFAA6F7A9C458CCF850A42E6D08E7F363F823272B2BAF530C1486AA02BE144899D030D87AB298F78F08B8794EDA2396C6230DF525A28AA22DDF0B60061E5902EBFA7825EA1D76246628428372FA51958CF6EF32FF2C68E587C76FBC126D820603FC5AA485544224560938D9548A60FDD667EEC710B81155E0CEDC605DBF2286370B09EF658EFBF02A6EA74F19EF23850CDB639D50D631F201A1BB6EFBBBA8FDA46A2EBED9CB460AC92498C1B55215</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">Microsoft certificate template</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication, Microsoft Smartcard Login, Signing KDC Response</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft Application Policies Extension</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">93:8B:52:BB:F8:4E:B7:B3:BB:94:23:C0:61:CF:9E:DA:B1:5F:A4:7B</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">C0:F5:7D:AD:21:54:C5:70:CF:75:AB:04:C9:65:78:95:57:87:CD:1A</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=danglingtree-DC-CA(2),CN=dc,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=danglingtree-DC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:dc.danglingtree.htb, DNS:danglingtree.htb, DNS:DANGLINGTREE</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">Microsoft NTDS CA Extension</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-08-03T16:32:53</elem>
+<elem key="notAfter">2106-08-03T16:32:53</elem>
+</table>
+<elem key="md5">82672fbc2f8c4d515f851b63bbb35a40</elem>
+<elem key="sha1">d65781fd541acd7eaf8b1a69150f1a2993365f71</elem>
+<elem key="sha256">64ea25993558b8561c71bcdebf7aa71afdbcb48ef17fc991d47e9f2c83261222</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIHGTCCBQGgAwIBAgITHgAAAA5tmFJzZxJYSAACAAAADjANBgkqhkiG9w0BAQsF&#xa;ADBQMRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xp&#xa;bmd0cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwIBcNMjYwODAzMTYz&#xa;MjUzWhgPMjEwNjA4MDMxNjMyNTNaMAAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw&#xa;ggEKAoIBAQDIFSfKc9nKTCbcoXvqqMSR2JKaHm2wdVOKPHLC0mNjgD5kZ2xh6gyk&#xa;yTW6im2DeZozH+jUj/N8dVLGX45Y9gRyoNfJYxgN54n4sjBMeri9UNNO+qb3qcRY&#xa;zPhQpC5tCOfzY/gjJysrr1MMFIaqAr4USJnQMNh6spj3jwi4eU7aI5bGIw31JaKK&#xa;oi3fC2AGHlkC6/p4JeoddiRmKEKDcvpRlYz27zL/LGjlh8dvvBJtggYD/FqkhVRC&#xa;JFYJONlUimD91mfuxxC4EVXgztxgXb8ihjcLCe9ljvvwKm6nTxnvI4UM22OdUNYx&#xa;8gGhu277u6j9pGouvtnLRgrJJJjBtVIVAgMBAAGjggM4MIIDNDA4BgkrBgEEAYI3&#xa;FQcEKzApBiErBgEEAYI3FQiGpuR/h4aIAIWRgQuF84N4hYuqEIEuASECAW4CAQAw&#xa;MgYDVR0lBCswKQYIKwYBBQUHAwIGCCsGAQUFBwMBBgorBgEEAYI3FAICBgcrBgEF&#xa;AgMFMA4GA1UdDwEB/wQEAwIFoDBABgkrBgEEAYI3FQoEMzAxMAoGCCsGAQUFBwMC&#xa;MAoGCCsGAQUFBwMBMAwGCisGAQQBgjcUAgIwCQYHKwYBBQIDBTAdBgNVHQ4EFgQU&#xa;k4tSu/hOt7O7lCPAYc+e2rFfpHswHwYDVR0jBBgwFoAUwPV9rSFUxXDPdasEyWV4&#xa;lVeHzRowgdMGA1UdHwSByzCByDCBxaCBwqCBv4aBvGxkYXA6Ly8vQ049ZGFuZ2xp&#xa;bmd0cmVlLURDLUNBKDIpLENOPWRjLENOPUNEUCxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRhbmdsaW5n&#xa;dHJlZSxEQz1odGI/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29iamVj&#xa;dENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MIHJBggrBgEFBQcBAQSBvDCBuTCB&#xa;tgYIKwYBBQUHMAKGgalsZGFwOi8vL0NOPWRhbmdsaW5ndHJlZS1EQy1DQSxDTj1B&#xa;SUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29u&#xa;ZmlndXJhdGlvbixEQz1kYW5nbGluZ3RyZWUsREM9aHRiP2NBQ2VydGlmaWNhdGU/&#xa;YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MEEGA1UdEQEB&#xa;/wQ3MDWCE2RjLmRhbmdsaW5ndHJlZS5odGKCEGRhbmdsaW5ndHJlZS5odGKCDERB&#xa;TkdMSU5HVFJFRTBNBgkrBgEEAYI3GQIEQDA+oDwGCisGAQQBgjcZAgGgLgQsUy0x&#xa;LTUtMjEtNDIyMDIzODMzMi01NzAyMzcyOC0xMTI5MTEwNjQ2LTEwMDAwDQYJKoZI&#xa;hvcNAQELBQADggIBAAHAz84BKh0DGMV9YEg2L/ddBbp5GTj1R5xSmOt9nFGb4UDO&#xa;96HOFHq1rnlFswd9oEAz+gG4bIt6CiLQ+/EFEf1O8cBiDTAsS3F16ffF+dvdRwCM&#xa;oU7RBx2Tc3gQOLRFysfZ5QabG189CcneKoz9qTt7nWfX5Zj/xeR8Vn3aDv0J9h72&#xa;DVu67Prh9QR85dur8aq62G4BdpnhpleWkIrVTahvZvk+ZdQ6mo98lMDVt13ILX/o&#xa;jJ8nTE5Pe1JMqyjnjPn++1JSqDLUbxvXPWaQZbnc3NZRGWWC6DfaaiIqTTAFSk68&#xa;bfYHNu8PDPGWgeNhzYSSCNbeHVfx/qp474ITfIwMY2DxJBcbXLFFKgFsawKi7Aza&#xa;bsFq16tMSTcQjRrJaXaB9yDKry57lwtGAlRJaVzQXZ4lW49eYcwJC5fHIOAftCZ/&#xa;0VYS8H7TR9+2e2m/UY83JX965+fmVbh5VfFPhKgow5clTLDE2cJ2i1RLMwaRCHSn&#xa;kWYFWuhlBHD3YGNMlXILXF32w2WbeJCLGIQV8o8KUTbKOBRoAwaV35bsECanZ+sI&#xa;l1m1fqiq7Bruu+ftv7dP9dOHW0ZFnXeMWW4UAo/JGdY0AlHd/P3quZkEQv+OP3IT&#xa;wbON87Eu+ImljefcU5kALJZCGWIBpNBowe490QkpoLwPiG9WXqgWkf/JBMYy&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script></port>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ms-wbt-server" servicefp="SF-Port3389-TCP:V=7.99%I=7%D=8/9%Time=6A7858EB%P=x86_64-pc-linux-gnu%r(TerminalServerCookie,13,&quot;\x03\0\0\x13\x0e\xd0\0\0\x124\0\x02\?\x08\0\x02\0\0\0&quot;);" method="probed" conf="10"/><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="ssl-cert" output="Subject: commonName=dc.danglingtree.htb&#xa;Not valid before: 2026-03-25T05:48:29&#xa;Not valid after:  2026-09-24T05:48:29"><table key="subject">
+<elem key="commonName">dc.danglingtree.htb</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">dc.danglingtree.htb</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">CA658D26CFAA95840E2EA922FFC2264E607FB2BDCD426AA634B0639C5DF84F32A2BD3AB6365100A7586D1AC49DFA4083B93BEE5C4D685801C96F41671CF7AED4E5C35EA671D40A80501087DCF61F143F41A3F95DCE1E74DA4DAB2DA8E5EE57EEB398E221D88F972C66957E3DEB6E3C2C6C23C8546928CF116992005AC57A3391FCB8144B497FE0B344DE2C70C27C8E4A0D01A87110C6FF287F654C1BACE07FC6B79920E10559A684A09782239BE43CA213BDB5C3D2CBC54714CA003EBF0DF7A7649F74346C6C0A5257EC455A9D8ECCDEA226593A642051EE8568E671231880E65B5EC2EBCF5222B159A545BF3B1B975FA23DE6CE2669E3E3A8DF8CA7A9855BBD</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Key Encipherment, Data Encipherment</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-03-25T05:48:29</elem>
+<elem key="notAfter">2026-09-24T05:48:29</elem>
+</table>
+<elem key="md5">4599496f7b7e5e3a060bb62f49a60f04</elem>
+<elem key="sha1">c841e9c4c71c273c11ae36e36a6e80d544f5695c</elem>
+<elem key="sha256">2f5667eb1671b5ade87f4c9244802d42114908c4488e8b22954c5cc32da39017</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIC6jCCAdKgAwIBAgIQEVbFS9jYO4hAnZHZVOnxNzANBgkqhkiG9w0BAQsFADAe&#xa;MRwwGgYDVQQDExNkYy5kYW5nbGluZ3RyZWUuaHRiMB4XDTI2MDMyNTA1NDgyOVoX&#xa;DTI2MDkyNDA1NDgyOVowHjEcMBoGA1UEAxMTZGMuZGFuZ2xpbmd0cmVlLmh0YjCC&#xa;ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMpljSbPqpWEDi6pIv/CJk5g&#xa;f7K9zUJqpjSwY5xd+E8yor06tjZRAKdYbRrEnfpAg7k77lxNaFgByW9BZxz3rtTl&#xa;w16mcdQKgFAQh9z2HxQ/QaP5Xc4edNpNqy2o5e5X7rOY4iHYj5csZpV+PetuPCxs&#xa;I8hUaSjPEWmSAFrFejOR/LgUS0l/4LNE3ixwwnyOSg0BqHEQxv8of2VMG6zgf8a3&#xa;mSDhBVmmhKCXgiOb5DyiE721w9LLxUcUygA+vw33p2SfdDRsbApSV+xFWp2OzN6i&#xa;Jlk6ZCBR7oVo5nEjGIDmW17C689SIrFZpUW/OxuXX6I95s4maePjqN+Mp6mFW70C&#xa;AwEAAaMkMCIwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgQwMA0GCSqG&#xa;SIb3DQEBCwUAA4IBAQCRt0ETKSz46BuctLcwG1I6YsmDHB6hD4efSjzUZF6/a1wG&#xa;LewqqsV02wr7H/u6z2dQdIw8m01SqV/zu5tByMIFocBmxitLrlSqVq+d/9uzHfFT&#xa;XK6E5kPDjDEI0X6a5W0IWY5XXqqhASGvBr0ERcMU16WNeCYk4KWnNmA10XYY6F98&#xa;qYCXsgsILJfL5t8DwLQyx2v8sHGiFYsy2Y8/4KMgPqKCk2b8YY6ziWBHjZ0ystWA&#xa;1C2wWJnogbHugS1amE0l2OTuw3RwYWX6LBaOvSKyoMKWG/hcJBY0IORlevjC53/X&#xa;Tl5DYgm8JDDoW04DbrY9VXGDxNmiNeymhE9jVj8M&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="rdp-ntlm-info" output="&#xa;  Target_Name: DANGLINGTREE&#xa;  NetBIOS_Domain_Name: DANGLINGTREE&#xa;  NetBIOS_Computer_Name: DC&#xa;  DNS_Domain_Name: danglingtree.htb&#xa;  DNS_Computer_Name: dc.danglingtree.htb&#xa;  DNS_Tree_Name: danglingtree.htb&#xa;  Product_Version: 10.0.26100&#xa;  System_Time: 2026-08-09T17:41:45+00:00"><elem key="Target_Name">DANGLINGTREE</elem>
+<elem key="NetBIOS_Domain_Name">DANGLINGTREE</elem>
+<elem key="NetBIOS_Computer_Name">DC</elem>
+<elem key="DNS_Domain_Name">danglingtree.htb</elem>
+<elem key="DNS_Computer_Name">dc.danglingtree.htb</elem>
+<elem key="DNS_Tree_Name">danglingtree.htb</elem>
+<elem key="Product_Version">10.0.26100</elem>
+<elem key="System_Time">2026-08-09T17:41:45+00:00</elem>
+</script></port>
+<port protocol="tcp" portid="6600"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="mshvlm" servicefp="SF-Port6600-TCP:V=7.99%T=SSL%I=7%D=8/9%Time=6A7858F8%P=x86_64-pc-linux-gnu%r(GetRequest,2000,&quot;HTTP/1\.1\x20403\x20Forbidden\r\nConnection:\x20close\r\nDate:\x20Sun,\x2009\x20Aug\x202026\x2017:39:52\x20GMT\r\nCache-Control:\x20no-store\r\nCache-Control:\x20max-age=0\r\nPragma:\x20no-cache\r\nSet-Cookie:\x20\.AspNetCore\.Antiforgery\.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguon8IuAl3druqqzKhcQWJlenrl1FpdDN2ZX67xR2EP3gbkZu4rk8Cx3ZndK58LMIj_Ws4yZ0RkUECRfqxvfcLmzDK9hNwGopzkrskUf_0aGXkeXMWE-LLHir6qTAW-DkVKE;\x20path=/;\x20secure;\x20samesite=none;\x20Partitioned\r\nSet-Cookie:\x20WAC-SESSION=02cf322f2ac0488cb054ee97484f5b24;\x20expires=Mon,\x2010\x20Aug\x202026\x2017:39:52\x20GMT;\x20path=/;\x20secure;\x20samesite=lax;\x20httponly\r\nSet-Cookie:\x20WAC-TOKEN=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nSet-Cookie:\x20WAC-AAD=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nSet-Cookie:\x20XSRF-TOKEN=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nStrict-Transport-Security:\x20max-age=5184000;\x20includeSubDomains;\x20preload\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html\x20lang=\&quot;en\&quot;\x20xmlns=\&quot;http://www\.w3\.org/1999/xhtml\&quot;&gt;\r\n\r\n&lt;head&quot;)%r(HTTPOptions,1000,&quot;HTTP/1\.1\x20403\x20Forbidden\r\nConnection:\x20close\r\nDate:\x20Sun,\x2009\x20Aug\x202026\x2017:39:52\x20GMT\r\nCache-Control:\x20no-store\r\nCache-Control:\x20max-age=0\r\nPragma:\x20no-cache\r\nSet-Cookie:\x20\.AspNetCore\.Antiforgery\.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguolwiYnEqXSko0jbL48nsA8ODTBRcmoZehgB9AtfgCImkMfto-gobfDoxVeuqBBE63KEBTPEX5ed9fX0GioWxOrEQEprdZ6h59syOMrdD-mAJ3u_5rubXK6jpRhMTJKoYow;\x20path=/;\x20secure;\x20samesite=none;\x20Partitioned\r\nSet-Cookie:\x20WAC-SESSION=a3d3c3034ebb4faaa3e627c26b8bb2c5;\x20expires=Mon,\x2010\x20Aug\x202026\x2017:39:52\x20GMT;\x20path=/;\x20secure;\x20samesite=lax;\x20httponly\r\nSet-Cookie:\x20WAC-TOKEN=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nSet-Cookie:\x20WAC-AAD=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nSet-Cookie:\x20XSRF-TOKEN=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20GMT;\x20path=/\r\nStrict-Transport-Security:\x20max-age=5184000;\x20includeSubDomains;\x20preload\r\n\r\n&lt;!DOCTYPE\x20html&gt;\r\n&lt;html\x20lang=\&quot;en\&quot;\x20xmlns=\&quot;http://www\.w3\.org/1999/xhtml\&quot;&gt;\r\n\r\n&lt;head&quot;);" tunnel="ssl" method="table" conf="3"/><script id="ssl-cert" output="Subject: commonName=dc.danglingtree.htb&#xa;Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:dc.danglingtree.htb&#xa;Not valid before: 2026-03-26T05:41:20&#xa;Not valid after:  2027-03-26T05:41:20"><table key="subject">
+<elem key="commonName">dc.danglingtree.htb</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">danglingtree-DC-CA</elem>
+<elem key="domainComponent">danglingtree</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">A62A8208C0906D9F8CE38271E47892D445E979188B17D546FADE2040127751D33DDB4C35804140564C695137E3EB9460FDE736E92D47C6BB095D60952C1DEB54CCCD729BD3322585F66903C2D19E69F854F920B01CD2D46EF624A008840A550DF1309878EDC5AF8DFFDAF9E1FBBB085065DD0500D68296127FE737714A2737BD298586D8D9322C9F9D05E35A98ED5FB629B52468DBEF55B5F5C67BA70CDD7986892064C3E53BCD51BD79AEC30BCE9DCC8838B77440B23332FAC4DBF07ACDFA0FF3F30C6C290FD8EB21C7080E2A365AFECB4C95027638B58CA62DD04E99ECBE76692A2BC37A7809C89805330B5F72B2A46BE75D87A02A68E1CFDCFF82ECAE7C09</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">1.3.6.1.4.1.311.20.2</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">S/MIME Capabilities</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">CE:26:06:82:2A:BF:A6:C8:54:D1:28:F7:08:8D:78:23:59:9B:1B:C5</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">82:E1:BF:07:3C:35:0B:1E:49:14:D3:31:E0:80:9A:29:3F:4D:1E:F5</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=danglingtree-DC-CA,CN=dc,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=danglingtree-DC-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=danglingtree,DC=htb?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:dc.danglingtree.htb</elem>
+</table>
+<table>
+<elem key="name">Microsoft NTDS CA Extension</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2026-03-26T05:41:20</elem>
+<elem key="notAfter">2027-03-26T05:41:20</elem>
+</table>
+<elem key="md5">7f8b9a97773de83d981af9cd1cc7f0ad</elem>
+<elem key="sha1">57db0c74fcba80b54d4e55d6efeceb6045066b05</elem>
+<elem key="sha256">c80812fe9f1ab25aaac789ce31ac813fa01ddd06a68a0282238af1d581bdc797</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIHSjCCBTKgAwIBAgITHgAAAANTkcVIb02hQgAAAAAAAzANBgkqhkiG9w0BAQsF&#xa;ADBQMRMwEQYKCZImiZPyLGQBGRYDaHRiMRwwGgYKCZImiZPyLGQBGRYMZGFuZ2xp&#xa;bmd0cmVlMRswGQYDVQQDExJkYW5nbGluZ3RyZWUtREMtQ0EwHhcNMjYwMzI2MDU0&#xa;MTIwWhcNMjcwMzI2MDU0MTIwWjAeMRwwGgYDVQQDExNkYy5kYW5nbGluZ3RyZWUu&#xa;aHRiMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApiqCCMCQbZ+M44Jx&#xa;5HiS1EXpeRiLF9VG+t4gQBJ3UdM920w1gEFAVkxpUTfj65Rg/ec26S1HxrsJXWCV&#xa;LB3rVMzNcpvTMiWF9mkDwtGeafhU+SCwHNLUbvYkoAiEClUN8TCYeO3Fr43/2vnh&#xa;+7sIUGXdBQDWgpYSf+c3cUonN70phYbY2TIsn50F41qY7V+2KbUkaNvvVbX1xnun&#xa;DN15hokgZMPlO81RvXmuwwvOncyIOLd0QLIzMvrE2/B6zfoP8/MMbCkP2OshxwgO&#xa;KjZa/stMlQJ2OLWMpi3QTpnsvnZpKivDengJyJgFMwtfcrKka+ddh6AqaOHP3P+C&#xa;7K58CQIDAQABo4IDTTCCA0kwLwYJKwYBBAGCNxQCBCIeIABEAG8AbQBhAGkAbgBD&#xa;AG8AbgB0AHIAbwBsAGwAZQByMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcD&#xa;ATAOBgNVHQ8BAf8EBAMCBaAweAYJKoZIhvcNAQkPBGswaTAOBggqhkiG9w0DAgIC&#xa;AIAwDgYIKoZIhvcNAwQCAgCAMAsGCWCGSAFlAwQBKjALBglghkgBZQMEAS0wCwYJ&#xa;YIZIAWUDBAECMAsGCWCGSAFlAwQBBTAHBgUrDgMCBzAKBggqhkiG9w0DBzAdBgNV&#xa;HQ4EFgQUziYGgiq/pshU0Sj3CI14I1mbG8UwHwYDVR0jBBgwFoAUguG/Bzw1Cx5J&#xa;FNMx4ICaKT9NHvUwgdAGA1UdHwSByDCBxTCBwqCBv6CBvIaBuWxkYXA6Ly8vQ049&#xa;ZGFuZ2xpbmd0cmVlLURDLUNBLENOPWRjLENOPUNEUCxDTj1QdWJsaWMlMjBLZXkl&#xa;MjBTZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPWRhbmds&#xa;aW5ndHJlZSxEQz1odGI/Y2VydGlmaWNhdGVSZXZvY2F0aW9uTGlzdD9iYXNlP29i&#xa;amVjdENsYXNzPWNSTERpc3RyaWJ1dGlvblBvaW50MIHJBggrBgEFBQcBAQSBvDCB&#xa;uTCBtgYIKwYBBQUHMAKGgalsZGFwOi8vL0NOPWRhbmdsaW5ndHJlZS1EQy1DQSxD&#xa;Tj1BSUEsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049&#xa;Q29uZmlndXJhdGlvbixEQz1kYW5nbGluZ3RyZWUsREM9aHRiP2NBQ2VydGlmaWNh&#xa;dGU/YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5MD8GA1Ud&#xa;EQQ4MDagHwYJKwYBBAGCNxkBoBIEEDq+sABwNwVEvZzuNTouAOCCE2RjLmRhbmds&#xa;aW5ndHJlZS5odGIwTQYJKwYBBAGCNxkCBEAwPqA8BgorBgEEAYI3GQIBoC4ELFMt&#xa;MS01LTIxLTQyMjAyMzgzMzItNTcwMjM3MjgtMTEyOTExMDY0Ni0xMDAwMA0GCSqG&#xa;SIb3DQEBCwUAA4ICAQCDrFs2CE5wk0ob6FYZOealIlCmVjq++jNtAh8I5t2/Ycg9&#xa;Do4QSI8SB4zxbaN96M/d2czUUHQFWFe7v5t7ClYvqfvoo92Se/Xnm0Ax05P28JBb&#xa;t6sC8tAWPF1poqLvStZQO/uci3C50kHgs7h/lolS90/xijQ/aJiTNiV76f5hnP+t&#xa;U3vT2X4i1W7BvVxwTurORpPcmdfdAj4Zh9JEpB9Fb9OVAyvOh/ieHk5o7WhPsL2v&#xa;p/yZmP1Meru/h8WXp8BGaJkOgJYwOOdsr8g/WP6gZ2iix2ZZYGVmFzHqPAmpCdOC&#xa;oE3vTdhcBNL5oRC2rvb5ylatshnZKnIlgWmG2FqQzT7iPXTSh6CvGKLNHRO9CLnu&#xa;Dwr6p3DU4reXxZK9Yv/N+Xf7pXvKk0Ylx1VnIeMLcv0qxFEZ+Aut3TKQDqDYtGwF&#xa;2CXEs7TshCeWbot+ugCjYXE5Y8VcjnLGTQC+MnbgkN0vTiFSK4PLu8s/yAwMVtIS&#xa;qBCVH+y8IgtqbYPTPFbZur14TgNr2cc4veJHSwi1OqgXcYXd60Z38GinaB1oGdQ8&#xa;D25ebTYV8XEJABAIvfA8iCPYgpbvAb7B/TfxR2s6nUkZhcxHrqGc0sNz3Rh1wBEJ&#xa;iVphr24G/+M2zbQus0G5FZJeAxMpEbogs6PI9EUwa0w2qKqYGI2+tv5mNVrldA==&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="tls-alpn" output="&#xa;  h2&#xa;  http/1.1"><elem>h2</elem>
+<elem>http/1.1</elem>
+</script><script id="fingerprint-strings" output="&#xa;  GetRequest: &#xa;    HTTP/1.1 403 Forbidden&#xa;    Connection: close&#xa;    Date: Sun, 09 Aug 2026 17:39:52 GMT&#xa;    Cache-Control: no-store&#xa;    Cache-Control: max-age=0&#xa;    Pragma: no-cache&#xa;    Set-Cookie: .AspNetCore.Antiforgery.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguon8IuAl3druqqzKhcQWJlenrl1FpdDN2ZX67xR2EP3gbkZu4rk8Cx3ZndK58LMIj_Ws4yZ0RkUECRfqxvfcLmzDK9hNwGopzkrskUf_0aGXkeXMWE-LLHir6qTAW-DkVKE; path=/; secure; samesite=none; Partitioned&#xa;    Set-Cookie: WAC-SESSION=02cf322f2ac0488cb054ee97484f5b24; expires=Mon, 10 Aug 2026 17:39:52 GMT; path=/; secure; samesite=lax; httponly&#xa;    Set-Cookie: WAC-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: WAC-AAD=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Strict-Transport-Security: max-age=5184000; includeSubDomains; preload&#xa;    &lt;!DOCTYPE html&gt;&#xa;    &lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&#xa;    &lt;head&#xa;  HTTPOptions: &#xa;    HTTP/1.1 403 Forbidden&#xa;    Connection: close&#xa;    Date: Sun, 09 Aug 2026 17:39:52 GMT&#xa;    Cache-Control: no-store&#xa;    Cache-Control: max-age=0&#xa;    Pragma: no-cache&#xa;    Set-Cookie: .AspNetCore.Antiforgery.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguolwiYnEqXSko0jbL48nsA8ODTBRcmoZehgB9AtfgCImkMfto-gobfDoxVeuqBBE63KEBTPEX5ed9fX0GioWxOrEQEprdZ6h59syOMrdD-mAJ3u_5rubXK6jpRhMTJKoYow; path=/; secure; samesite=none; Partitioned&#xa;    Set-Cookie: WAC-SESSION=a3d3c3034ebb4faaa3e627c26b8bb2c5; expires=Mon, 10 Aug 2026 17:39:52 GMT; path=/; secure; samesite=lax; httponly&#xa;    Set-Cookie: WAC-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: WAC-AAD=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Strict-Transport-Security: max-age=5184000; includeSubDomains; preload&#xa;    &lt;!DOCTYPE html&gt;&#xa;    &lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&#xa;    &lt;head"><elem key="GetRequest">&#xa;    HTTP/1.1 403 Forbidden&#xa;    Connection: close&#xa;    Date: Sun, 09 Aug 2026 17:39:52 GMT&#xa;    Cache-Control: no-store&#xa;    Cache-Control: max-age=0&#xa;    Pragma: no-cache&#xa;    Set-Cookie: .AspNetCore.Antiforgery.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguon8IuAl3druqqzKhcQWJlenrl1FpdDN2ZX67xR2EP3gbkZu4rk8Cx3ZndK58LMIj_Ws4yZ0RkUECRfqxvfcLmzDK9hNwGopzkrskUf_0aGXkeXMWE-LLHir6qTAW-DkVKE; path=/; secure; samesite=none; Partitioned&#xa;    Set-Cookie: WAC-SESSION=02cf322f2ac0488cb054ee97484f5b24; expires=Mon, 10 Aug 2026 17:39:52 GMT; path=/; secure; samesite=lax; httponly&#xa;    Set-Cookie: WAC-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: WAC-AAD=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Strict-Transport-Security: max-age=5184000; includeSubDomains; preload&#xa;    &lt;!DOCTYPE html&gt;&#xa;    &lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&#xa;    &lt;head</elem>
+<elem key="HTTPOptions">&#xa;    HTTP/1.1 403 Forbidden&#xa;    Connection: close&#xa;    Date: Sun, 09 Aug 2026 17:39:52 GMT&#xa;    Cache-Control: no-store&#xa;    Cache-Control: max-age=0&#xa;    Pragma: no-cache&#xa;    Set-Cookie: .AspNetCore.Antiforgery.7Eyhia2WOxE=CfDJ8HsozULo80ZBsxvkNAKguolwiYnEqXSko0jbL48nsA8ODTBRcmoZehgB9AtfgCImkMfto-gobfDoxVeuqBBE63KEBTPEX5ed9fX0GioWxOrEQEprdZ6h59syOMrdD-mAJ3u_5rubXK6jpRhMTJKoYow; path=/; secure; samesite=none; Partitioned&#xa;    Set-Cookie: WAC-SESSION=a3d3c3034ebb4faaa3e627c26b8bb2c5; expires=Mon, 10 Aug 2026 17:39:52 GMT; path=/; secure; samesite=lax; httponly&#xa;    Set-Cookie: WAC-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: WAC-AAD=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Set-Cookie: XSRF-TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/&#xa;    Strict-Transport-Security: max-age=5184000; includeSubDomains; preload&#xa;    &lt;!DOCTYPE html&gt;&#xa;    &lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&#xa;    &lt;head</elem>
+</script></port>
+<port protocol="tcp" portid="9389"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="mc-nmf" product=".NET Message Framing" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49664"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49679"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49680"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49685"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49686"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="ncacn_http" product="Microsoft Windows RPC over HTTP" version="1.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="49693"><state state="open" reason="syn-ack" reason_ttl="127"/></port>
+<port protocol="tcp" portid="49711"><state state="open" reason="syn-ack" reason_ttl="127"/></port>
+<port protocol="tcp" portid="49716"><state state="open" reason="syn-ack" reason_ttl="127"/></port>
+<port protocol="tcp" portid="49750"><state state="open" reason="syn-ack" reason_ttl="127"/></port>
+</ports>
+<hostscript><script id="clock-skew" output="mean: 6h59m59s, deviation: 0s, median: 6h59m59s"><elem key="count">2</elem>
+<elem key="median">25199</elem>
+<elem key="stddev">0</elem>
+<elem key="mean">25199</elem>
+</script><script id="smb2-security-mode" output="&#xa;  3.1.1: &#xa;    Message signing enabled and required"><table key="3.1.1">
+<elem>Message signing enabled and required</elem>
+</table>
+</script><script id="smb2-time" output="&#xa;  date: 2026-08-09T17:41:48&#xa;  start_date: N/A"><elem key="date">2026-08-09T17:41:48</elem>
+<elem key="start_date">N/A</elem>
+</script></hostscript><times srtt="98563" rttvar="994" to="102539"/>
+</host>
+<runstats><finished time="1786272169" timestr="Sun Aug  9 06:42:49 2026" summary="Nmap done at Sun Aug  9 06:42:49 2026; 1 IP address (1 host up) scanned in 201.56 seconds" elapsed="201.56" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -55,6 +55,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Bedside** | Medium/Hard (Linux / Season 11) | [`Bedside/`](Bedside/) — pdfminer → esm LFI → sudo torch checkpoint |
 | **Silentium** | Easy (Linux) | [`Silentium/`](Silentium/) — Flowise takeover/RCE → SSH → Gogs CVE-2025-8110 |
 | **Support** | Easy (Windows AD) | [`Support/`](Support/) — guest share → LDAP/WinRM → RBCD DA |
+| **DanglingTree** | Hard (Windows AD / ADCS) | [`DanglingTree/`](DanglingTree/) — WAC → noah → alex DPAPI → jake FCP → ESC1 DA |
 
 ## Layout convention
 

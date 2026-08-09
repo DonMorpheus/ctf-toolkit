@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Sun Aug  9 04:18:07 2026 as: /usr/lib/nmap/nmap -p 25,80,110,143,443,465,587,993,995,8080,8443,9998,17000-17002 -sV -Pn -oA /home/kali/Desktop/htb/danglingtree/nmap/smartermail 10.129.6.118 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -p 25,80,110,143,443,465,587,993,995,8080,8443,9998,17000-17002 -sV -Pn -oA /home/kali/Desktop/htb/danglingtree/nmap/smartermail 10.129.6.118" start="1786263487" startstr="Sun Aug  9 04:18:07 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="15" services="25,80,110,143,443,465,587,993,995,8080,8443,9998,17000-17002"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1786263487" endtime="1786263522"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.129.6.118" addrtype="ipv4"/>
+<hostnames>
+<hostname name="dc.danglingtree.htb" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="25"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="smtp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:internet_information_services:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="110"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="pop3" method="table" conf="3"/></port>
+<port protocol="tcp" portid="143"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="imap" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="127"/><service name="https" tunnel="ssl" method="table" conf="3"/></port>
+<port protocol="tcp" portid="465"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="smtps" method="table" conf="3"/></port>
+<port protocol="tcp" portid="587"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="submission" method="table" conf="3"/></port>
+<port protocol="tcp" portid="993"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="imaps" method="table" conf="3"/></port>
+<port protocol="tcp" portid="995"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="pop3s" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http-proxy" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="9998"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="distinct32" method="table" conf="3"/></port>
+<port protocol="tcp" portid="17000"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+<port protocol="tcp" portid="17001"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+<port protocol="tcp" portid="17002"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+</ports>
+<times srtt="99801" rttvar="56477" to="325709"/>
+</host>
+<runstats><finished time="1786263522" timestr="Sun Aug  9 04:18:42 2026" summary="Nmap done at Sun Aug  9 04:18:42 2026; 1 IP address (1 host up) scanned in 34.69 seconds" elapsed="34.69" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

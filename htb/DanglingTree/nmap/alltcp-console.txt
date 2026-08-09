@@ -1,0 +1,32 @@
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-08-09 06:37 -0400
+Nmap scan report for 10.129.6.118
+Host is up (0.094s latency).
+Not shown: 65510 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+53/tcp    open  domain
+80/tcp    open  http
+88/tcp    open  kerberos-sec
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+389/tcp   open  ldap
+443/tcp   open  https
+445/tcp   open  microsoft-ds
+464/tcp   open  kpasswd5
+593/tcp   open  http-rpc-epmap
+636/tcp   open  ldapssl
+3268/tcp  open  globalcatLDAP
+3269/tcp  open  globalcatLDAPssl
+3389/tcp  open  ms-wbt-server
+6600/tcp  open  mshvlm
+9389/tcp  open  adws
+49664/tcp open  unknown
+49679/tcp open  unknown
+49680/tcp open  unknown
+49685/tcp open  unknown
+49686/tcp open  unknown
+49693/tcp open  unknown
+49711/tcp open  unknown
+49716/tcp open  unknown
+49750/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 96.11 seconds

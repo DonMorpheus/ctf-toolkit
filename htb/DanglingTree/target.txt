@@ -1,0 +1,5 @@
+IP: 10.129.6.118
+VPN: ass.ovpn (Downloads)
+Status: recon
+Type: tournament / release arena
+Started: 2026-08-09

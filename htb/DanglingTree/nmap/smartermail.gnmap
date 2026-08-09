@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Sun Aug  9 04:18:07 2026 as: /usr/lib/nmap/nmap -p 25,80,110,143,443,465,587,993,995,8080,8443,9998,17000-17002 -sV -Pn -oA /home/kali/Desktop/htb/danglingtree/nmap/smartermail 10.129.6.118
+Host: 10.129.6.118 (dc.danglingtree.htb)	Status: Up
+Host: 10.129.6.118 (dc.danglingtree.htb)	Ports: 25/filtered/tcp//smtp///, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 110/filtered/tcp//pop3///, 143/filtered/tcp//imap///, 443/open/tcp//ssl|https?///, 465/filtered/tcp//smtps///, 587/filtered/tcp//submission///, 993/filtered/tcp//imaps///, 995/filtered/tcp//pop3s///, 8080/filtered/tcp//http-proxy///, 8443/filtered/tcp//https-alt///, 9998/filtered/tcp//distinct32///, 17000/filtered/tcp/////, 17001/filtered/tcp/////, 17002/filtered/tcp/////
+# Nmap done at Sun Aug  9 04:18:42 2026 -- 1 IP address (1 host up) scanned in 34.69 seconds
