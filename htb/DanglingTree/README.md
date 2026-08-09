@@ -41,5 +41,5 @@ python3 scripts/get_flags.py
 
 ## Flagi
 
-- user: `ae276f322ed6850b63a1e1c0944df018`
-- root: `75ac3d7cd89ad1c1b41ab7a9ebe07c70`
+- user: `<REDACTED_FLAG>`
+- root: `<REDACTED_FLAG>`

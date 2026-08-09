@@ -142,7 +142,7 @@
 
 ## ROOT DONE (2026-08-09)
 - Path: anderson WAC → noah user → alex DPAPI → jake FCP → ESC1 EmployeeAuthTemplate → Administrator
-- user: ae276f322ed6850b63a1e1c0944df018
-- root: 75ac3d7cd89ad1c1b41ab7a9ebe07c70
+- user: <REDACTED_FLAG>
+- root: <REDACTED_FLAG>
 - Scripts: wac_ps, noah_exec, fcp_jake, sync_time_to_dc, esc1_get_admin, get_flags
 - Write-up: WRITEUP.md

@@ -79,7 +79,7 @@ python3 scripts/noah_exec.py 'type $env:USERPROFILE\Desktop\user.txt'
 # anderson WAC → LogonUser(noah) + ImpersonateLoggedOnUser
 ```
 
-**user.txt** = `ae276f322ed6850b63a1e1c0944df018`
+**user.txt** = `<REDACTED_FLAG>`
 
 ---
 
@@ -167,7 +167,7 @@ python3 scripts/get_flags.py
 # root.txt z C$\Users\Administrator\Desktop\
 ```
 
-**root.txt** = `75ac3d7cd89ad1c1b41ab7a9ebe07c70`
+**root.txt** = `<REDACTED_FLAG>`
 
 ---
 
@@ -189,8 +189,8 @@ guest (blank)
 
 | Flag | Hash |
 |------|------|
-| user | `ae276f322ed6850b63a1e1c0944df018` |
-| root | `75ac3d7cd89ad1c1b41ab7a9ebe07c70` |
+| user | `<REDACTED_FLAG>` |
+| root | `<REDACTED_FLAG>` |
 
 ## Creds (lab)
 
