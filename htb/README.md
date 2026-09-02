@@ -57,6 +57,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Support** | Easy (Windows AD) | [`Support/`](Support/) — guest share → LDAP/WinRM → RBCD DA |
 | **DanglingTree** | Hard (Windows AD / ADCS) | [`DanglingTree/`](DanglingTree/) — WAC → noah → alex DPAPI → jake FCP → ESC1 DA |
 | **Ghostlink** | Hard (Windows AD) | [`Ghostlink/`](Ghostlink/) — MQTT coerce → HTTP traversal → Gogs CVE-2025-8110 → ESC11 DA |
+| **BlockSynergy** | Insane (Linux / tournament) | [`BlockSynergy/`](BlockSynergy/) — VIP SSRF → ping userinfo CI → `:5000` log_file → restore TOCTOU |
 
 ## Layout convention
 
