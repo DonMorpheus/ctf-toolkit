@@ -61,6 +61,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Ghostlink** | Hard (Windows AD) | [`Ghostlink/`](Ghostlink/) — MQTT coerce → HTTP traversal → Gogs CVE-2025-8110 → ESC11 DA |
 | **BlockSynergy** | Insane (Linux / tournament) | [`BlockSynergy/`](BlockSynergy/) — VIP SSRF → ping userinfo CI → `:5000` log_file → restore TOCTOU |
 | **Garfield** | Windows AD / RODC | [`Garfield/`](Garfield/) — logon script → ADM ADSI → Ligolo RODC → RBCD → RODC Golden Ticket |
+| **Management** | Linux (OpenAM / GLPI) | [`Management/`](Management/) — CVE-2026-33439 → GLPI LDAP reuse → rdiff-backup sudo argparse |
 
 ## Layout convention
 
