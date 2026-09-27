@@ -62,6 +62,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **BlockSynergy** | Insane (Linux / tournament) | [`BlockSynergy/`](BlockSynergy/) — VIP SSRF → ping userinfo CI → `:5000` log_file → restore TOCTOU |
 | **Garfield** | Windows AD / RODC | [`Garfield/`](Garfield/) — logon script → ADM ADSI → Ligolo RODC → RBCD → RODC Golden Ticket |
 | **Management** | Linux (OpenAM / GLPI) | [`Management/`](Management/) — CVE-2026-33439 → GLPI LDAP reuse → rdiff-backup sudo argparse |
+| **Layover** | Linux (Craft / CUPS) | [`Layover/`](Layover/) — Craft SSTI → `.env` key decrypt → CUPS GHSA-c54j-2vqw-wpwp |
 
 ## Layout convention
 
