@@ -63,6 +63,19 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Garfield** | Windows AD / RODC | [`Garfield/`](Garfield/) — logon script → ADM ADSI → Ligolo RODC → RBCD → RODC Golden Ticket |
 | **Management** | Linux (OpenAM / GLPI) | [`Management/`](Management/) — CVE-2026-33439 → GLPI LDAP reuse → rdiff-backup sudo argparse |
 | **Layover** | Linux (Craft / CUPS) | [`Layover/`](Layover/) — Craft SSTI → `.env` key decrypt → CUPS GHSA-c54j-2vqw-wpwp |
+| **2017 oldest easies** | session (12 boxes) | [`2017-oldest-easies/`](2017-oldest-easies/) — [`WRITEUP.md`](2017-oldest-easies/WRITEUP.md) |
+| **Precious** | Easy (Linux) | [`Precious/`](Precious/) — pdfkit CVE-2022-25765 → YAML sudo |
+| **Legacy** | Easy (Windows XP) | [`Legacy/`](Legacy/) — MS08-067 |
+| **Devel** | Easy (Windows IIS) | [`Devel/`](Devel/) — FTP write → KiTrap0D |
+| **Beep** | Medium (Linux Elastix) | [`Beep/`](Beep/) — LFI amportal → SSH reuse |
+| **Arctic** | Easy (Windows CF8) | [`Arctic/`](Arctic/) — JRun :8500 upload → local LPE |
+| **Grandpa** | Easy (Windows IIS6) | [`Grandpa/`](Grandpa/) — CVE-2017-7269 → ms14_070 |
+| **Granny** | Easy (Windows IIS6) | [`Granny/`](Granny/) — WebDAV PUT → local LPE |
+| **Bank** | Easy (Linux) | [`Bank/`](Bank/) — vhost + `.htb` + SUID emergency |
+| **Blocky** | Easy (Linux) | [`Blocky/`](Blocky/) — JAR javap → notch sudo |
+| **Mirai** | Easy (Linux / Pi) | [`Mirai/`](Mirai/) — default SSH → USB strings |
+| **Shocker** | Easy (Linux) | [`Shocker/`](Shocker/) — Shellshock CGI → sudo perl |
+| **Bashed** | Easy (Linux) | [`Bashed/`](Bashed/) — phpbash → cron test.py |
 
 ## Layout convention
 
