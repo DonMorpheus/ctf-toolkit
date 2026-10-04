@@ -77,6 +77,8 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 | **Mirai** | Easy (Linux / Pi) | [`Mirai/`](Mirai/) — default SSH → USB strings |
 | **Shocker** | Easy (Linux) | [`Shocker/`](Shocker/) — Shellshock CGI → sudo perl |
 | **Bashed** | Easy (Linux) | [`Bashed/`](Bashed/) — phpbash → cron test.py |
+| **Curling** | Easy (Linux) | [`Curling/`](Curling/) — Joomla RCE → floris → cron `curl -K` |
+| **Bastion** | Easy (Windows) | [`Bastion/`](Bastion/) — VHD SAM → mRemoteNG GCM → WinRM/WMI hop |
 
 ## Layout convention
 
