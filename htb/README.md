@@ -44,6 +44,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 
 | Box | Difficulty | Path |
 |-----|------------|------|
+| **Airport** | Linux (RA / AIDX) | [`Airport/`](Airport/) — heapdump → in-band XXE via ClickHouse → Kafka SASL → DLQ FILE as root |
 | **Touch** | Windows (RA / kiosk) | [`Touch/`](Touch/) — DeviceHub serial → kiosk RDP → `LoadFrom` printer plugin |
 | **Paperwork** | Easy (Linux) | [`Paperwork/`](Paperwork/) — [`WRITEUP.md`](Paperwork/WRITEUP.md), [`edu/`](Paperwork/edu/), [`paperwork/`](Paperwork/paperwork/) scripts |
 | **Connected** | Hard (Linux / FreePBX) | [`Connected/`](Connected/) — CVE-2025-57819, `ha_trigger` privesc |

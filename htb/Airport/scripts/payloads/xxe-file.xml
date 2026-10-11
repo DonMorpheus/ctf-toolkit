@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE x [ <!ENTITY e SYSTEM "file:///etc/hostname"> ]>
+<IATA_AIDX_FlightLegNotifRQ xmlns="http://www.iata.org/IATA/2007/00" Version="21.2">
+  <Originator CompanyShortName="HTB" Code="HT"/>
+  <FlightLeg>
+    <LegIdentifier>
+      <Airline CodeContext="3">&e;</Airline>
+      <FlightNumber>P1</FlightNumber>
+      <DepartureAirport CodeContext="3">WAW</DepartureAirport>
+      <ArrivalAirport CodeContext="3">AMS</ArrivalAirport>
+      <OriginDate>2026-10-11</OriginDate>
+    </LegIdentifier>
+  </FlightLeg>
+</IATA_AIDX_FlightLegNotifRQ>
