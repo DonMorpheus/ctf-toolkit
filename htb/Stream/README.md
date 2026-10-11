@@ -1,4 +1,4 @@
-# Airport (HTB, Linux / Release Arena)
+# Stream (HTB, Linux / Release Arena)
 
 AIDX ingest on FastAPI, Spring terminal-edge gateway, ClickHouse behind nginx. Dual-use XML: **in-band XXE** for user, **malformed body → DLQ** for root.
 

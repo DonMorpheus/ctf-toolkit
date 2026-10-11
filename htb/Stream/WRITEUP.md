@@ -1,7 +1,7 @@
-# Airport — HTB Write-up
+# Stream — HTB Write-up
 
 **Author:** DonMorpheus (lab)
-**Machine:** Airport (Release Arena, Linux)
+**Machine:** Stream (Release Arena, Linux)
 **Hosts:** `htb-airport.htb` / `api.htb-airport.htb` / `db.htb-airport.htb`
 **Scope:** HTB VPN / personal lab only
 
