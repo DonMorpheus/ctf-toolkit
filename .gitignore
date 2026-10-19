@@ -5,6 +5,8 @@ docs/
 *.ovpn
 .env
 .env.*
+secrets.env
+**/secrets.env
 *copy-paste*
 loot/
 **/id_ed25519*
