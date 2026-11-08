@@ -44,6 +44,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 
 | Box | Difficulty | Path |
 |-----|------------|------|
+| **Unclaimed** | Windows (RA / baggage) | [`Unclaimed/`](Unclaimed/) — TracerBot `/ask` → SQL impersonation → SMK proxy decrypt → Backup Operators SAM |
 | **Takeoff** | Linux (RA / airline) | [`Takeoff/`](Takeoff/) — Go SSTI `{{.File}}` → gob+HMAC check-in → n8n executeCommand → bind-mount setuid |
 | **DutyBound** | Linux (RA / kiosk POS) | [`DutyBound/`](DutyBound/) — BCBP `airline_use` SQLi → `COPY TO PROGRAM` → X11 `C-A-t` → systemd.path CSV `eval` |
 | **Autopilot** | Linux + AD (RA / Season 12) | [`Autopilot/`](Autopilot/) — WebDAV → postfix `daemon_directory` → reverse SMB proxy + DnsAdmins / ntlmrelayx / DA `C$` |
