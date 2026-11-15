@@ -1,0 +1,29 @@
+Patch against dirkjanm/PKINITtools gettgtpkinit.py
+
+GroupPolicy_Audit issues ECDSA P-256. Stock PKINITtools CMS is RSA-SHA1.
+
+1. Load the PFX with cryptography (PKCS8 EC).
+2. If the key is EllipticCurvePrivateKey:
+   - digest SHA-256 (not SHA-1)
+   - signature algorithm 1.2.840.10045.4.3.2 (ecdsa-with-SHA256)
+   - crypto_key.sign(..., ECDSA(SHA256()))
+3. Optional clock skew: datetime.now(timezone.utc) + timedelta(seconds=int(os.environ['KRB_SKEW_SEC']))
+
+Relevant hunk (sign_authpack_native):
+
+    crypto_key = getattr(self, 'crypto_key', None)
+    use_ecdsa = isinstance(crypto_key, cec.EllipticCurvePrivateKey)
+    if use_ecdsa:
+        da['algorithm'] = algos.DigestAlgorithmId('sha256')
+        digest = hashlib.sha256(data).digest()
+    else:
+        digest = hashlib.sha1(data).digest()
+    ...
+    if use_ecdsa:
+        si['signature_algorithm'] = algos.SignedDigestAlgorithm(
+            {'algorithm': '1.2.840.10045.4.3.2'})
+        si['signature'] = crypto_key.sign(signed_blob, cec.ECDSA(chashes.SHA256()))
+    else:
+        si['signature_algorithm'] = algos.SignedDigestAlgorithm(
+            {'algorithm': '1.2.840.113549.1.1.1'})
+        si['signature'] = rsa_pkcs1v15_sign(self.privkey, signed_blob, "sha1")

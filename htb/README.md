@@ -44,6 +44,7 @@ Scripts are **machine-specific**. Always open the box’s README before running 
 
 | Box | Difficulty | Path |
 |-----|------------|------|
+| **Airways** | Windows AD (RA / GeoNetwork) | [`Airways/`](Airways/) — GeoNetwork XSLT RCE → ESC13 PKINIT → OUned user GPO on DC01 (Isabel RDP) |
 | **Unclaimed** | Windows (RA / baggage) | [`Unclaimed/`](Unclaimed/) — TracerBot `/ask` → SQL impersonation → SMK proxy decrypt → Backup Operators SAM |
 | **Takeoff** | Linux (RA / airline) | [`Takeoff/`](Takeoff/) — Go SSTI `{{.File}}` → gob+HMAC check-in → n8n executeCommand → bind-mount setuid |
 | **DutyBound** | Linux (RA / kiosk POS) | [`DutyBound/`](DutyBound/) — BCBP `airline_use` SQLi → `COPY TO PROGRAM` → X11 `C-A-t` → systemd.path CSV `eval` |
